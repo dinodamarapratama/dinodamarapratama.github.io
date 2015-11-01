@@ -1,0 +1,612 @@
+﻿<!DOCTYPE html>
+<html class="no-js pattern_1">
+<head>
+<title>Candidate</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin,latin-ext"/>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+<link href="css/font-awesome-ie7.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<link id="color_css" rel="stylesheet" type="text/css" href="css/color_scheme_1.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.combosex.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.flexslider.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.scrollbar.css"/>
+<link rel="stylesheet" type="text/css" href="css/style_main.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css"/>
+<!--[if (lte IE 9)]>
+    <link rel="stylesheet" type="text/css" href="css/iefix.css"/>
+    <![endif]-->
+<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.combosex.min.js"></script>
+<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="js/jquery.easytabs.min.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>																							
+<script type="text/javascript" src="js/jquery.scrollbar.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+	
+<script charset="utf-8" src="js/apiomat.js"></script>
+<script charset="utf-8" src="js/jstorage.js"></script>
+<style>
+.input[type="text"], input[type='password'] {
+  display: block;
+  margin: 0;
+  background : #fff;
+  font-family: sans-serif;
+  font-size: 15px;
+  width:90%;
+  padding: 5px;
+  height:30px;
+}
+.input[type="text",type='password']:focus {
+  
+}
+#list ul {
+    list-style: square url("images/dot.png");
+	margin-left: 10px;
+}
+</style>
+</head>
+<body onload="init()">
+
+<!-- Bar -->
+<!-- Bar -->
+<div id="bar">
+  <div class="inner"> 
+    
+  </div>
+</div>
+<!-- /Bar --> 
+
+<!-- Header -->
+<div id="header">
+  <div class="inner"> 
+    
+    <!-- Logo -->
+    <div id="logo"> <a href="index.html"><img src="images/Logo.png" width="100%"  alt="logo"/></a><a class="menu-hider"></a></div>
+    <!-- /Logo -->
+    
+      <ul id="navigation">
+      <li class="current"> <a href="dashboard_pelamar.html">My JobStar</a></li>
+	  <li><a href="jobs.html">Pencarian Kerja</a></li>   
+      <li><a href="about.html">About</a></li>
+	  <li><a href="index.html">Logout</a></li>
+     
+    </ul>
+    <div class="reponsive-nav">
+   <select  class="select" name="menu1" id="menu1"> 
+      <option value="dashboard_pelamarView.html">My JobStar</option>
+	  <option value="jobs.html">Pencarian Kerja</option>
+      <option value="about.html">About</option>
+	  <option value="index.html">Logout</option>
+    </select>
+    </div>
+  </div>
+</div>
+<!-- /Header --> 
+
+<!-- Content -->
+<div id="content">
+  <div id="title">
+    <h1 class="inner">Lowongan Tersedia<span id="jobs-counter"></span>
+    
+    </h1>
+  </div>
+  <div class="inner"> 
+    
+    <!-- Content Inner -->
+    <div class="content-inner"> 
+      
+      <!-- Content Left -->
+      <div class="content-left">
+        <div id="search-filter" class="block background">
+          <h2 class="title-1">Pencarian</h2>
+          <div class="block-content">
+            <form id="search-job-page">
+              <label>Pencarian berdasarkan</label>
+              <p style="font-weight:bold;margin-left:2px">Jabatan</p>
+             <select class="select" id="jabatan">
+<option value="Administrasi / Personalia">Administrasi / Personalia</option>
+<option value="Administrator Database">Administrator Database</option>
+<option value="Administrator Sistem">Administrator Sistem</option>
+<option value="Ahli Fisioterapi">Ahli Fisioterapi</option>
+<option value="Ahli Kacamata">Ahli Kacamata</option>
+<option value="Ahli Kecantikan / Ahli Rias">Ahli Kecantikan / Ahli Rias</option>
+<option value="Ahli Negosiasi Real Estate">Ahli Negosiasi Real Estate</option>
+<option value="Ahli Patologi">Ahli Patologi</option>
+<option value="Ahli Radiografi">Ahli Radiografi</option>
+<option value="Ahli Sonografi">Ahli Sonografi</option>
+<option value="Aktuaria / Statistik">Aktuaria / Statistik</option>
+<option value="Akutansi & Laporan Keuangan">Akutansi & Laporan Keuangan</option>
+<option value="Akutansi / Keuangan">Akutansi / Keuangan</option>
+<option value="Akutansi Dasar / Pembukuan / Eksekutif Akun Manajemen">Akutansi Dasar / Pembukuan / Eksekutif Akun Manajemen</option>
+<option value="Akutansi umum / Pembiyaan">Akutansi umum / Pembiyaan</option>
+<option value="Analis / Konsultan">Analis / Konsultan</option>
+<option value="Analisa Ekuitas / Saham">Analisa Ekuitas / Saham</option>
+<option value="Analisa Sistem">Analisa Sistem</option>
+<option value="Animator">Animator</option>
+<option value="Arsitek / Desain Interior">Arsitek / Desain Interior</option>
+<option value="Arsitek Perangkat Lunak">Arsitek Perangkat Lunak</option>
+<option value="Artis Desktop Publishing">Artis Desktop Publishing</option>
+<option value="Asisten / Teknisi Lab Klinis">Asisten / Teknisi Lab Klinis</option>
+<option value="Asisten Hukum / Paralegal">Asisten Hukum / Paralegal</option>
+<option value="Audit & Pajak">Audit & Pajak</option>
+<option value="Audit Internal">Audit Internal</option>
+<option value="Auditing">Auditing</option>
+<option value="Auditor IT">Auditor IT</option>
+<option value="Bangunan / Konstruksi">Bangunan / Konstruksi</option>
+<option value="Bartender">Bartender</option>
+<option value="Bendahara / Keuangan Korporasi">Bendahara / Keuangan Korporasi</option>
+<option value="Bioteknologi">Bioteknologi</option>
+<option value="CAD-CAM / Konseptor">CAD-CAM / Konseptor</option>
+<option value="CAD-CAM / Konseptor Elektrikal">CAD-CAM / Konseptor Elektrikal</option>
+<option value="Dealer Kasino">Dealer Kasino</option>
+<option value="Desain Grafis">Desain Grafis</option>
+<option value="Desain Multimendia">Desain Multimendia</option>
+<option value="Desain Web">Desain Web</option>
+<option value="Desainer Bunga">Desainer Bunga</option>
+<option value="Desainer Industri / Produk">Desainer Industri / Produk</option>
+<option value="Desainer Industri / Produk Fotografer">Desainer Industri / Produk Fotografer</option>
+<option value="Dokter / Diagnosa">Dokter / Diagnosa</option>
+<option value="Dosen">Dosen</option>
+<option value="Ekonom">Ekonom</option>
+<option value="Eksekutif / MIS IT">Eksekutif / MIS IT</option>
+<option value="Eksekutif Periklanan / Manajer Akun">Eksekutif Periklanan / Manajer Akun</option>
+<option value="Petugas Kebersihan">Petugas Kebersihan</option>
+<option value="Farmasi">Farmasi</option>
+<option value="Geologi / Geofisika">Geologi / Geofisika</option>
+<option value="Gudang">Gudang</option>
+<option value="Guru Besar">Guru Besar</option>
+<option value="Guru SD">Guru SD</option>
+<option value="Guru TK">Guru TK</option>
+<option value="Hiburan / Seni Panggung">Hiburan / Seni Panggung</option>
+<option value="Hotel / Pariwisata">Hotel / Pariwisata</option>
+<option value="Hotel / Restoran">Hotel / Restoran</option>
+<option value="Hubungan Investor">Hubungan Investor</option>
+<option value="Hubungan Masyarakat">Hubungan Masyarakat</option>
+<option value="Hukum / Legal">Hukum / Legal</option>
+<option value="Ilmu Pengetahuan">Ilmu Pengetahuan</option>
+<option value="Ilmu pengetahuan & Teknologi / Lab">Ilmu pengetahuan & Teknologi / Lab</option>
+<option value="Instruktor Fitnes">Instruktor Fitnes</option>
+<option value="IT-Jaringan / Sistem / Sistem Database">IT-Jaringan / Sistem / Sistem Database</option>
+<option value="IT-Perangkat keras">IT-Perangkat keras</option>
+<option value="IT-Perangkat Lunak">IT-Perangkat Lunak</option>
+<option value="Jual Beli Saham">Jual Beli Saham</option>
+<option value="Jurnalis / Editor">Jurnalis / Editor</option>
+<option value="Juru Bidan">Juru Bidan</option>
+<option value="Juru Tulis Hukum">Juru Tulis Hukum</option>
+<option value="Juru Tulis Medis">Juru Tulis Medis</option>
+<option value="Keamanan / Angkatan Bersenjata">Keamanan / Angkatan Bersenjata</option>
+<option value="Keamanan Infrastruktur">Keamanan Infrastruktur</option>
+<option value="Keamanan Perangkat Lunak Konsultasi Perangkat Lunak">Keamanan Perangkat Lunak Konsultasi Perangkat Lunak</option>
+<option value="Kepala Sekolah">Kepala Sekolah</option>
+<option value="Kesehatan">Kesehatan</option>
+<option value="Keuangan / Investasi">Keuangan / Investasi</option>
+<option value="Kiropraktor">Kiropraktor</option>
+<option value="Klaim / Penyelesaian">Klaim / Penyelesaian</option>
+<option value="Koki">Koki</option>
+<option value="Komputer / IT">Komputer / IT</option>
+<option value="Konselor Pendidikan">Konselor Pendidikan</option>
+<option value="Konseptor Desain">Konseptor Desain</option>
+<option value="Konseptor Sipil / Struktural">Konseptor Sipil / Struktural</option>
+<option value="Konsultan">Konsultan</option>
+<option value="Konsultan Fungsi / Analis Bisnis">Konsultan Fungsi / Analis Bisnis</option>
+<option value="Kontrol Inventoris">Kontrol Inventoris</option>
+<option value="Kontrol Proses">Kontrol Proses</option>
+<option value="Koordinator / Agen Perjalanan">Koordinator / Agen Perjalanan</option>
+<option value="Korporasi Perbankan">Korporasi Perbankan</option>
+<option value="Kreatif">Kreatif</option>
+<option value="Logistik / Jaringan distribusi">Logistik / Jaringan distribusi</option>
+<option value="Mahasiswa magang">Mahasiswa magang</option>
+<option value="Makanan / Minuman / Pelayanan Restoran">Makanan / Minuman / Pelayanan Restoran</option>
+<option value="Manajemen">Manajemen</option>
+<option value="Manajemen / Akutansi Biaya / analis Bisnis">Manajemen / Akutansi Biaya / analis Bisnis</option>
+<option value="Manajemen / Investasi Dana">Manajemen / Investasi Dana</option>
+<option value="Manajemen Atas">Manajemen Atas</option>
+<option value="Manajemen Bendahara">Manajemen Bendahara</option>
+<option value="Manajemen Kontrak">Manajemen Kontrak</option>
+<option value="Manajemen Kredit">Manajemen Kredit</option>
+<option value="Manajemen Produk">Manajemen Produk</option>
+<option value="Manajemen Properti">Manajemen Properti</option>
+<option value="Manajemen Risiko">Manajemen Risiko</option>
+<option value="Manajemen Risiko Perusahaan">Manajemen Risiko Perusahaan</option>
+<option value="Manajer Hotel">Manajer Hotel</option>
+<option value="Mandor / Teknisi">Mandor / Teknisi</option>
+<option value="Manufaktur">Manufaktur</option>
+<option value="Manufakturing">Manufakturing</option>
+<option value="Marchandising">Marchandising</option>
+<option value="Mekanik / Otomotif">Mekanik / Otomotif</option>
+<option value="Operasi Kapal Pesiar">Operasi Kapal Pesiar</option>
+<option value="OperatorMesin Presisi">OperatorMesin Presisi</option>
+<option value="Operator Kasino">Operator Kasino</option>
+<option value="Peawatan Kesehatan / Kecantikan">Peawatan Kesehatan / Kecantikan</option>
+<option value="Pegawai Kerja / Supervisor Situs">Pegawai Kerja / Supervisor Situs</option>
+<option value="Pegawai Restoran">Pegawai Restoran</option>
+<option value="Pejual Properti">Pejual Properti</option>
+<option value="Pekerja Umum">Pekerja Umum</option>
+<option value="Pekerjaan Umum">Pekerjaan Umum</option>
+<option value="Pelapis Batu Bata">Pelapis Batu Bata</option>
+<option value="Pelatih IT">Pelatih IT</option>
+<option value="Pelatihan Perangkat Lunak / Aplikasi">Pelatihan Perangkat Lunak / Aplikasi</option>
+<option value="Pelayanan">Pelayanan</option>
+<option value="Pelayanan Kemasyarakatan">Pelayanan Kemasyarakatan</option>
+<option value="Pelayanan Pelanggan">Pelayanan Pelanggan</option>
+<option value="Pelukis">Pelukis</option>
+<option value="Pemandu Wanita">Pemandu Wanita</option>
+<option value="Pemasaran / Pengembangan Bisnis">Pemasaran / Pengembangan Bisnis</option>
+<option value="Pembantu">Pembantu</option>
+<option value="Pembelian / Manajemen Material">Pembelian / Manajemen Material</option>
+<option value="Pembuatan Peralatan / Operator Mesin">Pembuatan Peralatan / Operator Mesin</option>
+<option value="Pemelihara">Pemelihara</option>
+<option value="Pemeliharaan Gedung / Fasilitas">Pemeliharaan Gedung / Fasilitas</option>
+<option value="Pemeliharaan Mesin">Pemeliharaan Mesin</option>
+<option value="Pemijat">Pemijat</option>
+<option value="Penata Rambut">Penata Rambut</option>
+<option value="Pendidikan">Pendidikan</option>
+<option value="Pendidikan / Pelatihan">Pendidikan / Pelatihan</option>
+<option value="Peneliti">Peneliti</option>
+<option value="Penelitian & Pengembangan">Penelitian & Pengembangan</option>
+<option value="Penerbangan">Penerbangan</option>
+<option value="Penerbitan">Penerbitan</option>
+<option value="Pengacara">Pengacara</option>
+<option value="Pengacara Hak Paten / Hak Cipta">Pengacara Hak Paten / Hak Cipta</option>
+<option value="Pengaturan Keuangan / Manajemen Kekayaan">Pengaturan Keuangan / Manajemen Kekayaan</option>
+<option value="Pengawasan Kurator / Likuidasi">Pengawasan Kurator / Likuidasi</option>
+<option value="Pengetesan Medis / Klinis">Pengetesan Medis / Klinis</option>
+<option value="Pengirim Barang">Pengirim Barang</option>
+<option value="Pengurus Rumah">Pengurus Rumah</option>
+<option value="Penilai Properti">Penilai Properti</option>
+<option value="Penitipan Anak Perangan Instruksi">Penitipan Anak Perangan Instruksi</option>
+<option value="Penjaga Anak">Penjaga Anak</option>
+<option value="Penjaga Kebersihan Hotel">Penjaga Kebersihan Hotel</option>
+<option value="Penjaga Pintu Hotel">Penjaga Pintu Hotel</option>
+<option value="Penjahit">Penjahit</option>
+<option value="Penjamin (Asuransi)">Penjamin (Asuransi)</option>
+<option value="Penjaminan Kulitas / QA">Penjaminan Kulitas / QA</option>
+<option value="Penjualan – Korporasi">Penjualan – Korporasi</option>
+<option value="Penjualan – Teknik / Teknikal / IT">Penjualan – Teknik / Teknikal / IT</option>
+<option value="Penjualan / Marketing">Penjualan / Marketing</option>
+<option value="Penjualan Ritel">Penjualan Ritel</option>
+<option value="Pensurvei Tanah">Pensurvei Tanah</option>
+<option value="Penulis Cetak">Penulis Cetak</option>
+<option value="Penulis Teknis">Penulis Teknis</option>
+<option value="Perancangan Busana">Perancangan Busana</option>
+<option value="Peraturan Komplians">Peraturan Komplians</option>
+<option value="Perbankan / Keuangan">Perbankan / Keuangan</option>
+<option value="Perbankan / Operasi Cabang Reatail">Perbankan / Operasi Cabang Reatail</option>
+<option value="Perencana Materi">Perencana Materi</option>
+<option value="Perencanan Media">Perencanan Media</option>
+<option value="Periklanan">Periklanan</option>
+<option value="Periset">Periset</option>
+<option value="Perpajakan">Perpajakan</option>
+<option value="Persewaan Properti">Persewaan Properti</option>
+<option value="Persiapan Makanan / Pembantu Dapur">Persiapan Makanan / Pembantu Dapur</option>
+<option value="Personalia">Personalia</option>
+<option value="Pertanian">Pertanian</option>
+<option value="Petugas Komplians">Petugas Komplians</option>
+<option value="Petugas Layanan Tiket">Petugas Layanan Tiket</option>
+<option value="Petugas Medis / Paramedis">Petugas Medis / Paramedis</option>
+<option value="Petugas Pengelola Perusahaan ">Petugas Pengelola Perusahaan </option>
+<option value="Petugas Taman / Kebun">Petugas Taman / Kebun</option>
+<option value="Pinjaman / Hipotek">Pinjaman / Hipotek</option>
+<option value="Praktisi / Asisten Medis">Praktisi / Asisten Medis</option>
+<option value="Project Manajement">Project Manajement</option>
+<option value="Properti / Real Estate">Properti / Real Estate</option>
+<option value="Proses desain dan kontrol">Proses desain dan kontrol</option>
+<option value="Pustakawan">Pustakawan</option>
+<option value="QA Perangkat Lunak">QA Perangkat Lunak</option>
+<option value="QC/QA">QC/QA</option>
+<option value="Reseptionis">Reseptionis</option>
+<option value="Sekretaris">Sekretaris</option>
+<option value="Sekretaris Perusahaan">Sekretaris Perusahaan</option>
+<option value="Sekretaris Perusahaan">Sekretaris Perusahaan</option>
+<option value="Seni / Desain Kratif">Seni / Desain Kratif</option>
+<option value="Seni / Media / Komunikasi">Seni / Media / Komunikasi</option>
+<option value="Sipil / Konstruksi Bangunan">Sipil / Konstruksi Bangunan</option>
+<option value="Sopir">Sopir</option>
+<option value="Staf / Administrasi umum">Staf / Administrasi umum</option>
+<option value="Supervsor / Pemimpin Tim">Supervsor / Pemimpin Tim</option>
+<option value="Survei Kuantitas">Survei Kuantitas</option>
+<option value="Suster">Suster</option>
+<option value="Teknik">Teknik</option>
+<option value="Teknik Elektrikal">Teknik Elektrikal</option>
+<option value="Teknik Elektro">Teknik Elektro</option>
+<option value="Teknik Kimia">Teknik Kimia</option>
+<option value="Teknik Lainnya">Teknik Lainnya</option>
+<option value="Teknik Lingkungan">Teknik Lingkungan</option>
+<option value="Teknik Perminyakan">Teknik Perminyakan</option>
+<option value="Teknikal & Bantuan Pelanggan">Teknikal & Bantuan Pelanggan</option>
+<option value="Teknisi / Operator Produksi">Teknisi / Operator Produksi</option>
+<option value="Teknisi / Pendukung">Teknisi / Pendukung</option>
+<option value="Teknisi / Pendukung Elektrikal">Teknisi / Pendukung Elektrikal</option>
+<option value="Teknisi / Programer Perangkat Lunak">Teknisi / Programer Perangkat Lunak</option>
+<option value="Teknisi Elektrikal">Teknisi Elektrikal</option>
+<option value="Teknisi Elektronik">Teknisi Elektronik</option>
+<option value="Teknisi Network / Sistem">Teknisi Network / Sistem</option>
+<option value="Teknisi Fasilitas">Teknisi Fasilitas</option>
+<option value="Teknisi Lingkungan, Kesehatan & Keamanan">Teknisi Lingkungan, Kesehatan & Keamanan</option>
+<option value="Teknisi Mekanikal">Teknisi Mekanikal</option>
+<option value="Teknisi Otomotif">Teknisi Otomotif</option>
+<option value="Teknisi Pengetesan">Teknisi Pengetesan</option>
+<option value="Teknisi Penyejuk Udara">Teknisi Penyejuk Udara</option>
+<option value="Teknisi percetakan">Teknisi percetakan</option>
+<option value="Teknisi Proses">Teknisi Proses</option>
+<option value="Teknisi R&D">Teknisi R&D</option>
+<option value="Teknisi Sipil">Teknisi Sipil</option>
+<option value="Teknisi Situs">Teknisi Situs</option>
+<option value="Teknisi SMT">Teknisi SMT</option>
+<option value="Teknisi Struktural">Teknisi Struktural</option>
+<option value="Teknisi Telekomunikasi">Teknisi Telekomunikasi</option>
+<option value="Teknisi Waduk / Patroleum">Teknisi Waduk / Patroleum</option>
+<option value="Teknologi Makanan / Ahli Gizi">Teknologi Makanan / Ahli Gizi</option>
+<option value="Teknisi Otomotif">Teknisi Otomotif</option>
+<option value="Teknsi Pengeboran / Sumur">Teknsi Pengeboran / Sumur</option>
+<option value="Teknsi Pengetesan">Teknsi Pengetesan</option>
+<option value="Teknsi Produksi">Teknsi Produksi</option>
+<option value="Teknsi Proses">Teknsi Proses</option>
+<option value="Tele-sales / Telemarketing">Tele-sales / Telemarketing</option>
+<option value="Terapi Lainnya">Terapi Lainnya</option>
+<option value="Tukang kayu">Tukang kayu</option>
+<option value="Tukang Las">Tukang Las</option>
+<option value="Tukang Ledeng">Tukang Ledeng</option>
+<option value="Tukang Listrik">Tukang Listrik</option>
+<option value="Visual Merchandiser">Visual Merchandiser</option>
+<option value="Lainnya/Kategori tidak tersedia">Lainnya/Kategori tidak tersedia</option>
+</select>
+			  
+  <p style="font-weight:bold;margin-left:2px">Lokasi</p>
+ <select class="select"  id="lokasi" >
+<option value="Aceh">Aceh</option>
+<option value="Bali">Bali</option>
+<option value="Bangka Belitung">Bangka Belitung</option>
+<option value="Banten">Banten</option>
+<option value="Bengkulu">Bengkulu</option>
+<option value="Gorontalo">Gorontalo</option>
+<option value="DKI Jakarta">DKI Jakarta</option>
+<option value="Jambi">Jambi</option>
+<option value="Jawa Barat">Jawa Barat</option>
+<option value="Jawa tengah">Jawa tengah</option>
+<option value="Jawa Timur">Jawa Timur</option>
+<option value="Kalimantan Barat">Kalimantan Barat</option>
+<option value="Kalimantan Selatan">Kalimantan Selatan</option>
+<option value="Kalimantan Tengah">Kalimantan Tengah</option>
+<option value="Kalimantan Timur">Kalimantan Timur</option>
+<option value="Kepulauan Riao">Kepulauan Riao</option>
+<option value="Lampung">Lampung</option>
+<option value="Maluku">Maluku</option>
+<option value="Maluku Utara">Maluku Utara</option>
+<option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+<option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+<option value="Papua">Papua</option>
+<option value="Papua Barat">Papua Barat</option>
+<option value="Riau">Riau</option>
+<option value="Sulawesi Barat">Sulawesi Barat</option>
+<option value="Sulawesi Tengah">Sulawesi Tengah</option>
+<option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+<option value="Sulawesi Utara">Sulawesi Utara</option>
+<option value="Sumatra Barat">Sumatra Barat</option>
+<option value="Sumatra Selatan">Sumatra Selatan</option>
+<option value="Sumatra Utara">Sumatra Utara</option>
+<option value="Yogyakarta">Yogyakarta</option>
+
+  </select>
+  
+  
+  <p style="font-weight:bold;margin-left:2px">Kualifikasi</p>
+<select class="select"  id="kualifikasi" >
+				<option value="SMP">SMP</option>
+				<option value="SMA/Sederajat">SMA/Sederajat</option>
+				<option value="D3">D3</option>
+				<option value="S1">S1</option>
+				<option value="S2">S2</option>
+				<option value="S3">S3</option>
+  </select>
+  
+  <p style="font-weight:bold;margin-left:2px">Gaji</p>
+<select class="select"  id="gaji" >
+<option value="1 juta">1 juta</option>
+<option value="2 juta">2 juta</option>
+<option value="3 juta">3 juta</option>
+<option value="4 juta">4 juta</option>
+<option value="5 juta">5 juta</option>
+<option value="diatas 5 juta">diatas 5 juta</option>
+<option value="diatas 10 juta">diatas 10 juta</option>
+<option value="diatas 20 juta">diatas 20 juta</option>
+  </select>
+  
+  <p style="font-weight:bold;margin-left:2px">Tipe Pekerjaan</p>
+   <select class="select"  id="tipe_pekerjaan" >
+  <option value="fulltime">Full Time</option>
+  <option value="parttime">Part Time</option>
+  <option value="freelance">Freelance</option>
+  </select>
+   <input type="button" onclick="cariKerja()" style=" margin-top: 10px;float: left; display: block; height: 40px; background: none repeat scroll 0% 0% #259bc7;  width: 98px; border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px; font-size: 15px; font-weight: bold; color: rgb(255, 255, 255); cursor: pointer; " value="Cari" />
+            </form>
+          </div>
+		  <br><br>
+          
+          
+        </div>
+       
+      </div>
+      <!-- /Content Left --> 
+      
+      <!-- Content Center -->
+      <div class="content-center">
+     
+        <div class="clear"></div>
+        <div class="heading-l">
+          <h2> Lowongan Pekerjaan Tersedia </h2>
+        </div>
+        <div class="clear"></div>
+        <div id="job-content-fields">
+		<p id="statusL"></p><br>
+           <div id="list" class="view_mode">
+ 
+           </div>
+          </div>
+      
+           </div>
+          </div>
+        <div class="clear"></div>
+      </div>     
+    </div>
+
+    
+
+<!-- /Content --> 
+<div class="clear"> </div>
+<!-- Footer -->
+
+<!-- /Footer --> 
+<div id="copyright">
+  <div class="inner">
+    <div class="row-fluid"> 
+      <!-- Copyright Text -->
+      <div id="copyright-text">Copyright 2015 <a>JobStar</a> | All Rights Reserved</div>
+      <!-- /Copyright Text --> 
+      <!-- Copyright Social Link -->
+      <div id="copyright-link">
+        <div class="buttons">
+          <ul class="top_soical_icons pull-right	">
+<li> <a href="http://www.facebook.com"> <i class="fa fa-facebook"></i> </a> </li>
+            <li> <a href="https://plus.google.com"> <i class="fa fa-google-plus"></i> </a> </li>
+            <li> <a href="https://twitter.com"> <i class="fa fa-twitter"></i> </a> </li>
+            <li> <a href="https://www.linkedin.com"> <i class="fa fa-linkedin-square"></i> </a> </li>
+            <li> <a href="https://id.pinterest.com"> <i class="fa fa-pinterest"></i> </a> </li>
+            <li> <a href="https://dribbble.com"> <i class="fa fa-dribbble"></i> </a> </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /Copyright Social Link --> 
+      
+      <a class="scrollTop" href="#header" style="display: none;">
+      <div id = "up_container"> <span></span> </div>
+      </a> </div>
+  </div>
+</div>
+
+
+<!-- /Copyright -->
+<link href="css/switcher.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/switcher.js"></script>
+<script type="text/javascript" >
+
+var v1 = $.jStorage.get("key1");
+var v2 = $.jStorage.get("key2")
+var dataLength = 0;
+
+var statusKandidat ='kandidat';
+var emailPelamar = '';
+var cvPelamar ='';
+
+    function init() {
+        var user = new Apiomat.User();
+        user.setUserName("Admin");
+        user.setPassword("12345");
+        Apiomat.Datastore.configure(user);
+        var saveCB = {
+            onOk: function() {    
+            },
+            onError: function(error) {    
+            }
+        };
+        user.loadMe({
+            onOk: function() {
+			loadTask();
+            },
+            onError: function(error) {
+                user.save(saveCB);
+            }
+        });
+    }
+
+
+    function loadTask() {
+		
+        var y = "email==" + '"' + v1 + '"' + " and " + "password==" + '"' + v2 + '"';
+		Apiomat.Pelamar.getPelamars(y, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+				cvPelamar = data[i].data.cv;
+				emailPelamar = data[i].data.email;
+				console.log(cvPelamar);
+				console.log(emailPelamar);
+                };
+            },
+            onError: function(error) {} });	
+    }
+	
+	
+	function cariKerja() {
+	
+	var d = new Date();
+    var m = d.getMonth();
+    var y = d.getFullYear(); 
+    var x = d.getDate();
+    var tanggal = x+"/"+m+"/"+y;
+
+	
+	    document.getElementById("list").innerHTML = "";
+		var a = $( "#jabatan option:selected" ).val();
+        var b = $( "#lokasi option:selected" ).val();
+        var c = $( "#kualifikasi option	:selected" ).val(); 
+		var d = $( "#gaji option:selected" ).val(); 
+		var e = $( "#tipe_pekerjaan option:selected" ).val(); 	
+        
+		var y = "jabatan like" + '"' + a + '"' + " and " + "lokasi==" + '"' + b + '"' + " and " + "kualifikasi==" + '"' + c + '"' + " and " + "gaji==" + '"' + d + '"' + " and " + "tipe_pekerjaan==" + '"' + e + '"';
+	  
+		Apiomat.Lowongan_Kerja.getLowongan_Kerjas(y, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {	
+				     document.getElementById("jobs-counter").innerHTML = '('+data.length+')';
+				     document.getElementById("statusL").innerHTML = "";
+					 dataLength = data.length;
+					 document.getElementById("list").innerHTML = " <div class='field-container odd box-1'> <div class='nav-buttons'> <ul></ul> </div> <div class='header-fields'> <div class='title-company'> <div class='title'><a style='text-decoration:none;margin-bottom : 10px;' id='jabatan'>"+data[i].getJabatan()+"</a></div> <div class='company' id='lokasi'>"+data[i].getLokasi()+"</div> </div> </div> <div class='body-field'> <div class='teaser' id='rincian'>"+data[i].getRincian()+" </div> <ul class='candidate-meta meta-fields'> <li class='pull-left'>Kualifikasi: <span id='kualifikasi'>"+data[i].getKualifikasi()+"</span></li> <li class='pull-center'>Gaji: <span id='gaji'>"+data[i].getGaji()+"</span></li><br> <li class='pull-left'>Tipe : <span id='tipe_pekerjaan'>"+data[i].getTipe_pekerjaan()+"</span></li> <li class='pull-center'>Perusahaan: <a href='dashboard_perusahaanView.html?id="+data[i].getId_email()+"' target='_blank'><span id='nama_perusahaan'>"+data[i].getNama_perusahaan()+"</span><a></li></ul> </div> <br> <input type='button' style=' margin-top: 10px;float: right; display: block; height: 40px; background: none repeat scroll 0% 0% #259bc7;  width: 98px; border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px; font-size: 12px; font-weight: bold; color: rgb(255, 255, 255); cursor: pointer; ' value='Lamar Sekarang' onclick='lamar("+'"'+data[i].getId_email()+'",'+'"'+data[i].getJabatan()+'",'+'"'+cvPelamar+'",'+'"'+tanggal+'",'+'"'+statusKandidat+'",'+'"'+emailPelamar+'"'+");' /> </div>";
+                }console.log(dataLength);
+				if (dataLength == 0){document.getElementById("statusL").innerHTML = '&nbsp;'+ "Maaf. Kriteria tidak ditemukan ...";dataLength = 0;} 
+				else {
+				     dataLength = 0;
+				
+					}
+				
+            },
+            onError: function(error) {} });	
+    }
+
+    
+
+ 
+	function lamar(email,jabatan,cv,tanggal,status,emailPelamar) {
+	console.log(email);
+	console.log(jabatan);
+	console.log(cv);
+	console.log(tanggal);
+	console.log(emailPelamar);
+            var task = new Apiomat.Cv();
+			task.setId_email(email);
+            task.setTanggal(tanggal);
+            task.setCv(cv);
+			task.setJabatan(jabatan);
+			task.setStatus(status);
+			task.setFrom_email(emailPelamar);
+            task.save({
+                onOk: function() {
+                    document.getElementById("statusL").innerHTML = '&nbsp;'+ "Lamaran terkirim";
+					setTimeout(function(){ document.getElementById("statusL").innerHTML = '&nbsp;'+ ""; }, 2000);
+                }, onError: function(error) {console.log(error)}
+            });
+
+        
+    }
+</script>
+</script>
+</body>
+</html>

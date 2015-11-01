@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html class="no-js pattern_1">
+<head>
+<title>Candidate</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin,latin-ext"/>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+<link href="css/font-awesome-ie7.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<link id="color_css" rel="stylesheet" type="text/css" href="css/color_scheme_1.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.combosex.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.flexslider.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.scrollbar.css"/>
+<link rel="stylesheet" type="text/css" href="css/style_main.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css"/>
+<!--[if (lte IE 9)]>
+    <link rel="stylesheet" type="text/css" href="css/iefix.css"/>
+    <![endif]-->
+<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.combosex.min.js"></script>
+<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="js/jquery.easytabs.min.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="js/jquery.scrollbar.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+	
+<script charset="utf-8" src="js/apiomat.js"></script>
+<script charset="utf-8" src="js/jstorage.js"></script>
+<style>
+.input[type="text"], input[type='password'] {
+  display: block;
+  margin: 0;
+  background : #fff;
+  font-family: sans-serif;
+  font-size: 15px;
+  width:90%;
+  padding: 5px;
+  height:30px;
+}
+.input[type="text",type='password']:focus {
+  
+}
+</style>
+<script>
+$( document ).ready(function() {
+ var vars = {}, hash;
+ var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+ for(var i = 0; i < hashes.length; i++)
+ {
+ hash = hashes[i].split('='); 
+ vars[hash[0]] = hash[1];
+ document.getElementById("id_perusahaan").innerHTML = hash[1];
+ }
+});
+</script>
+</head>
+<body onload="init()">
+
+<!-- Bar -->
+<!-- Bar -->
+<div id="bar">
+  <div class="inner"> 
+    
+  </div>
+</div>
+<!-- /Bar --> 
+
+<!-- Header -->
+<div id="header">
+  <div class="inner"> 
+    
+    <!-- Logo -->
+    <div id="logo"> <a href="index.html"><img src="images/Logo.png" width="100%"  alt="logo"/></a><a class="menu-hider"></a></div>
+    <!-- /Logo -->
+    
+       <ul id="navigation">
+	  <li class="current"> <a href="dashboard_pelamar.html">My JobStar</a></li>
+	  <li><a href="jobs.html">Pencarian Kerja</a></li>
+      <li><a href="about.html">About</a></li>
+	  <li><a href="index.html">Logout</a></li>
+      <li><a href="about.html">About</a></li>
+     
+    </ul>
+    <div class="reponsive-nav">
+   <select  class="select" name="menu1" id="menu1"> 
+      <option value="dashboard_pelamarView.html">My JobStar</option>
+	  <option value="jobs.html">Pencarian Kerja</option>
+      <option value="about.html">About</option>
+	  <option value="index.html">Logout</option>
+    </select>
+    </div>
+  </div>
+</div>
+<!-- /Header --> 
+
+<!-- Content -->
+<div id="content">
+  <div id="title" class="underLinedBlock">
+    <h1 class="inner job_page" id="nama_perusahaan1" ></h1>
+  </div>
+  <div class="inner"> 
+    <!-- Content Inner -->
+    <div class="content-inner">
+      <div id="tabs-list" class="block non-title-border">
+        <div class="block-content">
+          <ul class="tabs">
+            <li class="first"><a href="#profile">Profile</a></li>
+            
+           
+          </ul>
+          <div id="profile" class="tab-page box-1"> 
+            <!-- Content Left -->
+            <div> </div>
+            <div class="left-sidebar">
+              <div class="block-content candidate"> <img id="logo_perusahaan" src="images/Logo.png" alt="User" /> </div>
+             
+              <div class="clear"> </div>
+            </div>
+            <!-- /Content Left --> 
+            <!-- Content Center -->
+            <div class="main-bar"> 
+            
+			    
+              <div class="block">
+			   <h3>Informasi Umum</h3>
+              <div class="block-content">
+			  <p style="display:none" id="id_perusahaan"></p>
+                <table class="candidate_info">
+                  <tr>
+                    <td>Nama:</td>
+                    <td id="nama"></td>
+                  </tr>
+                  <tr>
+                    <td>Nama Perusahaan:</td>
+                    <td id="nama_perusahaan2" ></td>
+                  </tr>
+                  <tr>
+                    <td>Alamat:</td>
+                    <td id="alamat"></td>
+                  </tr>
+                  <tr>
+                    <td>Telepon:</td>
+                    <td id="no_telp"></td>
+                  </tr>
+                </table>
+              </div>
+                <h3> Deskripsi Perusahaan</h3>
+                <p id="deskripsi_perusahaan"></p>
+              </div>
+              <!-- Cleaner -->
+              <div class="clear"> </div>
+            </div>
+            <!-- Cleaner -->
+            <div class="clear"> </div>
+          </div>
+		  
+         
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Content --> </div>
+
+<!-- Cleaner -->
+<div class="clear"> </div>
+<!-- Footer -->
+
+<!-- /Footer --> 
+<div id="copyright">
+  <div class="inner">
+    <div class="row-fluid"> 
+      <!-- Copyright Text -->
+      <div id="copyright-text">Copyright 2015 <a>JobStar</a> | By:Lila Dahlia</div>
+      <!-- /Copyright Text --> 
+      <!-- Copyright Social Link -->
+      <div id="copyright-link">
+        <div class="buttons">
+          <ul class="top_soical_icons pull-right	">
+            <li> <a href="http://www.facebook.com"> <i class="fa fa-facebook"></i> </a> </li>
+            <li> <a href="https://plus.google.com"> <i class="fa fa-google-plus"></i> </a> </li>
+            <li> <a href="https://twitter.com"> <i class="fa fa-twitter"></i> </a> </li>
+            <li> <a href="https://www.linkedin.com"> <i class="fa fa-linkedin-square"></i> </a> </li>
+            <li> <a href="https://id.pinterest.com"> <i class="fa fa-pinterest"></i> </a> </li>
+            <li> <a href="https://dribbble.com"> <i class="fa fa-dribbble"></i> </a> </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /Copyright Social Link --> 
+      
+      <a class="scrollTop" href="#header" style="display: none;">
+      <div id = "up_container"> <span></span> </div>
+      </a> </div>
+  </div>
+</div>
+
+
+<!-- /Copyright -->
+<link href="css/switcher.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/switcher.js"></script>
+<script type="text/javascript" >
+
+var v1 = $.jStorage.get("key3");
+
+
+    function init() {
+        var user = new Apiomat.User();
+        user.setUserName("Admin");
+        user.setPassword("12345");
+        Apiomat.Datastore.configure(user);
+        var saveCB = {
+            onOk: function() {    
+            },
+            onError: function(error) {    
+            }
+        };
+        user.loadMe({
+            onOk: function() {
+			loadTask();
+            },
+            onError: function(error) {
+                user.save(saveCB);
+            }
+        });
+    }
+
+
+    function loadTask() {
+		var x = document.getElementById('id_perusahaan').innerHTML;
+        var y = "email==" + '"' + x + '"' ;
+	
+		Apiomat.Perusahaan.getPerusahaans(y, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+					 document.getElementById("nama_perusahaan1").innerHTML = data[i].data.nama_perusahaan;
+					 document.getElementById("nama_perusahaan2").innerHTML = data[i].data.nama_perusahaan;
+					 document.getElementById("nama").innerHTML = data[i].data.nama;
+					 document.getElementById("logo_perusahaan").src = data[i].data.logo;
+					 document.getElementById("alamat").innerHTML = data[i].data.alamat;	
+					 document.getElementById("no_telp").innerHTML = data[i].data.no_telp;	
+					 document.getElementById("deskripsi_perusahaan").innerHTML = data[i].data.deskripsi_perusahaan;
+                };
+            },
+            onError: function(error) {} });	
+    }
+
+    
+
+    function daftar_pelamar() {
+        dataLength = 0;
+        var a = document.getElementById("s0").value;
+        var b = document.getElementById("s1").value;
+        var c = document.getElementById("s2").value;
+        buttonS.style.display = (buttonS.style.display != 'visible') ? 'none' : '';
+
+        if (a != "" && b != "" && c != "") {
+            var task = new Apiomat.Pelamar();
+            task.setEmail(a);
+            task.setPassword(b);
+			task.setNama(c);
+            task.save({
+                onOk: function() {
+                    document.getElementById("statusS").innerHTML = '&nbsp;'+ "Pendaftaran Berhasil, Silahkan Login";
+                }, onError: function(error) {}
+            });
+
+        } else {
+            document.getElementById("statusS").innerHTML = '&nbsp;'+"Mohon ulangi. isi semua data";
+            buttonS.style.display = (buttonS.style.display != 'none') ? 'visible' : '';
+        }
+    }
+	
+</script>
+</script>
+</body>
+</html>

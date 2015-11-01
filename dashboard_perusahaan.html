@@ -1,0 +1,516 @@
+﻿<!DOCTYPE html>
+<html class="no-js pattern_1">
+<head>
+<title>Candidate</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin,latin-ext"/>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+<link href="css/font-awesome-ie7.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<link id="color_css" rel="stylesheet" type="text/css" href="css/color_scheme_1.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.combosex.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.flexslider.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.scrollbar.css"/>
+<link rel="stylesheet" type="text/css" href="css/style_main.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css"/>
+<!--[if (lte IE 9)]>
+    <link rel="stylesheet" type="text/css" href="css/iefix.css"/>
+    <![endif]-->
+<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.combosex.min.js"></script>
+<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="js/jquery.easytabs.min.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
+<!-- <script type="text/javascript" src="js/jquery.gmap.min.js"></script> -->
+<script type="text/javascript" src="js/jquery.scrollbar.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+	
+<script charset="utf-8" src="js/apiomat.js"></script>
+<script charset="utf-8" src="js/jstorage.js"></script>
+
+<style>
+.input[type="text"], input[type='password'] {
+  display: block;
+  background : #fff;
+  font-family: sans-serif;
+  font-size: 15px;
+  width:100%;
+  height:30px;
+}
+
+.textarea{
+  display: block;
+  background : #fff;
+  font-family: sans-serif;
+  font-size: 15px;
+  width:90%;
+  height:100px;
+}
+
+.select {
+  @include appearance(none);
+  
+  text-indent: 0.01px;
+  text-overflow: '';
+  
+  padding: 1em 0 1em 1em;
+  
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    padding-right:1em;
+  }
+</style>
+</head>
+<body onload="init()">
+
+<!-- Bar -->
+<!-- Bar -->
+<div id="bar">
+  <div class="inner"> 
+    
+  </div>
+</div>
+<!-- /Bar --> 
+
+<!-- Header -->
+<div id="header">
+  <div class="inner"> 
+    
+    <!-- Logo -->
+    <div id="logo"> <a href="index.html"><img src="images/Logo.png" width="100%"  alt="logo"/></a><a class="menu-hider"></a></div>
+    <!-- /Logo -->
+    
+      <ul id="navigation">
+      <li class="current"> <a href="dashboard_perusahaan.html">My JobStarOffice</a></li> 
+      <li><a href="about1.html">About</a></li>
+	  <li><a href="index.html">Logout</a></li>
+     
+    </ul>
+    <div class="reponsive-nav">
+   <select  class="select" name="menu1" id="menu1"> 
+      <option value="dashboard_pelamarView.html">My JobStarOffice</option>
+      <option value="about1.html">About</option>
+	  <option value="index.html">Logout</option>
+    </select>
+    </div>
+  </div>
+</div>
+<!-- /Header --> 
+
+<!-- Content -->
+<div id="content">
+  <div id="title" class="underLinedBlock">
+    <h1 class="inner job_page" id="nama_perusahaan1" ></h1>
+  </div>
+  <div class="inner"> 
+    <!-- Content Inner -->
+    <div class="content-inner">
+      <div id="tabs-list" class="block non-title-border">
+        <div class="block-content">
+          <ul class="tabs">
+            <li class="first"><a href="#profile">Profile</a></li>
+            <li><a href="#lowongan_kerja">Lowongan</a></li>
+			<li><a href="#kandidat">Kandidat</a></li>
+           
+          </ul>
+          <div id="profile" class="tab-page box-1"> 
+            <!-- Content Left -->
+            <div> </div>
+            <div class="left-sidebar">
+			<p style="font-weight:bold;margin-left:2px">Logo Perusahaan</p>
+            <div class="block-content candidate"> <img id="logo_perusahaan"  src="images/Logo.png" alt="User" /> </div>
+			   <input type='file' id="logoUpload" /><button onclick="saveLogo()">Save</button>
+			   <br><p id="statusLogo"></p><br>
+              <h3>Informasi Umum</h3>
+              <div class="block-content">
+                <table class="candidate_info">
+                  <tr>
+                    <p style="font-weight:bold;margin-left:2px">Nama Akun</p>
+                    <input id="nama" type="text" class="input" placeholder="Nama" />
+                  </tr>
+                  <tr>
+                     <p style="font-weight:bold;margin-left:2px">Nama Perusahaan</p>
+                    <input id="nama_perusahaan2" type="text" class="input" placeholder="Nama Perusahaan" />
+                  </tr>
+                  <tr>
+                    <p style="font-weight:bold;margin-left:2px">Alamat</p>
+                    <input id="alamat" type="text" class="input" placeholder="Alamat" />
+                  </tr>
+                  <tr>
+				    <p style="font-weight:bold;margin-left:2px">Telepon</p>
+                    <input id="no_telp" type="text" class="input" placeholder="Telepon" />
+                  </tr>
+                </table>
+              </div>
+              <div class="clear"> </div>
+            </div>
+            <!-- /Content Left --> 
+            <!-- Content Center -->
+            <div class="main-bar"> 
+            
+			    
+              <div class="block">
+                <h3> Deskripsi Perusahaan</h3>
+				<textarea id="deskripsi_perusahaan" class="textarea"></textarea>
+              </div>
+              <!-- Cleaner -->
+              <div class="clear"> </div>
+			  <input type="button" onclick="save_profile()" style=" margin-top: 10px;float: left; display: block; height: 40px; background: none repeat scroll 0% 0% #259bc7;  width: 98px; border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px; font-size: 15px; font-weight: bold; color: rgb(255, 255, 255); cursor: pointer; " value="Simpan" />
+			  <br><br><p id="statusSave"></p>
+            </div>
+            <!-- Cleaner -->
+            <div class="clear"> </div>
+          </div>
+		  
+          <div id="lowongan_kerja"  class="tab-page box-1">
+            <div class="wrapper">
+               <div class="center-bar">
+                <h1>Kelola Lowongan Kerja</h1>
+                 <iframe width="100%" height="800px" src="editor.html"></iframe><br>
+				 <table class="table table-striped table-bordered table-hover" >
+                  <thead>
+                    <tr>
+                      <th>Jabatan</th>
+					  <th>Gaji</th>
+					  <th>Kualifikasi</th>
+                      <th>Tipe Pekerjaan</th>
+					  <th>Lokasi</th>
+					  <th>Pengaturan</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="daftar_loker"></tbody>
+                </table><br>
+                <br>
+              </div>
+              <div class="clear"> </div>
+            </div>
+          </div>
+		  
+		  <div id="kandidat"  class="tab-page box-1">
+            <div class="wrapper">
+               <div class="center-bar">
+                <h1>Kandidat Kerja</h1>
+                 <div id="job-content-fields">
+		<p id="statusL"></p>
+           <div id="list" class="view_mode">
+ 
+           </div>
+          </div> 
+		  
+<select id="getStatus" onchange="getKandidat()">
+  <option value='kandidat'>
+    kandidat
+  </option>
+  <option value='cadangan'>
+    cadangan
+  </option>
+  <option value='rekomendasi'>
+    rekomendasi
+  </option>
+  <option value='wawancara'>
+    wawancara
+  </option>
+  <option value='hubungan'>
+    hubungan
+  </option>
+</select>
+		  
+		  <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                  <thead>
+                    <tr>
+                      <th>Tanggal</th>
+					  <th>Jabatan</th>
+                      <th>CV</th>
+					  <th>Email</th>
+					  <th>Status</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="daftar_cv"></tbody>
+                </table><br><br>
+		  
+		  <p id="list_status"></p>
+              </div>
+              <!-- Cleaner -->
+              <div class="clear"> </div>
+            </div>
+          </div>
+          
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Content --> </div>
+
+<!-- Cleaner -->
+<div class="clear"> </div>
+<!-- Footer -->
+
+<!-- /Footer --> 
+<div id="copyright">
+  <div class="inner">
+    <div class="row-fluid"> 
+      <!-- Copyright Text -->
+      <div id="copyright-text">Copyright 2015 <a>CariKerja</a> | All Rights Reserved</div>
+      <!-- /Copyright Text --> 
+      <!-- Copyright Social Link -->
+      <div id="copyright-link">
+        <div class="buttons">
+          <ul class="top_soical_icons pull-right	">
+           <li> <a href="http://www.facebook.com"> <i class="fa fa-facebook"></i> </a> </li>
+            <li> <a href="https://plus.google.com"> <i class="fa fa-google-plus"></i> </a> </li>
+            <li> <a href="https://twitter.com"> <i class="fa fa-twitter"></i> </a> </li>
+            <li> <a href="https://www.linkedin.com"> <i class="fa fa-linkedin-square"></i> </a> </li>
+            <li> <a href="https://id.pinterest.com"> <i class="fa fa-pinterest"></i> </a> </li>
+            <li> <a href="https://dribbble.com"> <i class="fa fa-dribbble"></i> </a> </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /Copyright Social Link --> 
+      
+      <a class="scrollTop" href="#header" style="display: none;">
+      <div id = "up_container"> <span></span> </div>
+      </a> </div>
+  </div>
+</div>
+
+
+<!-- /Copyright -->
+<link href="css/switcher.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/switcher.js"></script>
+<script type="text/javascript" >
+
+var v1 = $.jStorage.get("key3");
+var v2 = $.jStorage.get("key4")
+var table  = document.getElementById('daftar_cv');
+var table_2  = document.getElementById('daftar_loker');
+
+    function init() {
+        var user = new Apiomat.User();
+        user.setUserName("Admin");
+        user.setPassword("12345");
+        Apiomat.Datastore.configure(user);
+        var saveCB = {
+            onOk: function() {    
+            },
+            onError: function(error) {    
+            }
+        };
+        user.loadMe({
+            onOk: function() {
+			loadTask();
+			loadKandidat();
+			loadLoker();
+            },
+            onError: function(error) {
+                user.save(saveCB);
+            }
+        });
+    }
+
+
+    function loadTask() {
+		
+        var y = "email==" + '"' + v1 + '"' + " and " + "password==" + '"' + v2 + '"';
+	
+		Apiomat.Perusahaan.getPerusahaans(y, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+					 document.getElementById("nama_perusahaan1").innerHTML = data[i].data.nama_perusahaan;
+					 document.getElementById("nama_perusahaan2").value = data[i].data.nama_perusahaan;
+					 document.getElementById("nama").value = data[i].data.nama;
+					 document.getElementById("logo_perusahaan").src = data[i].data.logo;
+					 document.getElementById("alamat").value = data[i].data.alamat;	
+					 document.getElementById("no_telp").value = data[i].data.no_telp;	
+					 document.getElementById("deskripsi_perusahaan").innerHTML = data[i].data.deskripsi_perusahaan;
+                };
+            },
+            onError: function(error) {} });	
+    }
+
+    
+	function save_profile() {	
+        var y = "email==" + '"' + v1 + '"' + " and " + "password==" + '"' + v2 + '"';
+	
+		Apiomat.Perusahaan.getPerusahaans(y, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+					 saveTo_profile(data[i]);
+                };
+            },
+            onError: function(error) {} });	
+    }
+	
+	
+
+    
+
+    function saveTo_profile(task) {
+	var nama = document.getElementById("nama").value ;
+	var nama_perusahaan = document.getElementById("nama_perusahaan2").value ;
+	var alamat = document.getElementById("alamat").value ;
+	var no_telp = document.getElementById("no_telp").value ;
+	var deskripsi_perusahaan = document.getElementById("deskripsi_perusahaan").value ;
+
+            task.setNama(nama);
+            task.setNama_perusahaan(nama_perusahaan);
+			task.setAlamat(alamat);
+			task.setNo_telp(no_telp);
+			task.setDeskripsi_perusahaan(deskripsi_perusahaan);
+			
+            task.save({
+                onOk: function() {
+                    document.getElementById("statusSave").innerHTML = '&nbsp;'+ "Berhasil disimpan";
+					setTimeout(function(){ document.getElementById("statusSave").innerHTML = '&nbsp;'+ ""; }, 2000);
+                }, onError: function(error) {}
+            });
+    }
+	
+	
+	function saveLogo() {
+        var y = "email==" + '"' + v1 + '"' + " and " + "password==" + '"' + v2 + '"';
+	
+		Apiomat.Perusahaan.getPerusahaans(y, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+				saveToLogo(data[i]);
+                };
+            },
+            onError: function(error) {} });	
+    }
+	
+	function saveToLogo(data) { 
+		var srcLogo = document.getElementById("logo_perusahaan").src ;
+		data.setLogo(srcLogo); 
+		data.save({
+		onOk: function() {document.getElementById("statusLogo").innerHTML = '&nbsp;'+ "Berhasil disimpan";
+		setTimeout(function(){ document.getElementById("statusLogo").innerHTML = '&nbsp;'+ ""; }, 2000);
+		},
+		onError: function(error) {}
+		}); 
+	}
+	
+	
+	
+	function loadKandidat() {
+		
+        var y = "id_email==" + '"' + v1 + '"';
+	
+		Apiomat.Cv.getCvs(y, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+					 
+					 table.innerHTML += '<tr>'+'<td>'+ data[i].getTanggal() +'</td>'+'<td>'+data[i].getJabatan() +'</td><td>'+"<a href='"+data[i].getCv()+"' target='_blank' > Unduh CV</a>" +'</td><td>'+data[i].getFrom_email() +"</td><td><select onchange=changeStatus($(this).val(),'"+data[i].getID()+"') ><option selected='selected'  value='"+data[i].getStatus()+"'>"+data[i].getStatus()+"</option><option value='kandidat'>kandidat</option><option value='cadangan'>cadangan</option><option value='rekomendasi'>rekomendasi</option><option value='wawancara'>wawancara</option><option value='hubungan'>hubungan</option></select></td></tr>";	
+					 
+                };
+            },
+            onError: function(error) {} });	
+    }
+	
+	function changeStatus(va1,val2){
+	
+	var z = "id==id"+'('+val2+')' ;
+	
+		Apiomat.Cv.getCvs(z, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+				saveToCv(data[i],va1);
+                };
+            },
+            onError: function(error) {} });	
+	};
+	
+	function saveToCv(data,val1) { 
+
+		data.setStatus(val1); 
+		data.save({
+		onOk: function() {
+		},
+		onError: function(error) {}
+		}); 
+	}
+	
+	
+	function getKandidat() {
+	table.innerHTML ="";
+		var a = $( "#getStatus option:selected" ).val(); 
+        var y = "id_email==" + '"' + v1 + '"' + " and " + "status==" + '"' + a + '"';
+	
+		Apiomat.Cv.getCvs(y, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+					 
+					 table.innerHTML += '<tr>'+'<td>'+ data[i].getTanggal() +'</td>'+'<td>'+data[i].getJabatan() +'</td><td>'+"<a href='"+data[i].getCv()+"' target='_blank' > Unduh CV</a>" +'</td><td>'+data[i].getFrom_email() +"</td><td><select onchange=changeStatus($(this).val(),'"+data[i].getID()+"') ><option selected='selected'  value='"+data[i].getStatus()+"'>"+data[i].getStatus()+"</option><option value='kandidat'>kandidat</option><option value='cadangan'>cadangan</option><option value='rekomendasi'>rekomendasi</option><option value='wawancara'>wawancara</option><option value='hubungan'>hubungan</option></select></td></tr>";	
+					 
+                };
+            },
+            onError: function(error) {} });	
+    }
+	
+	
+	function loadLoker() {
+		
+        var y = "id_email==" + '"' + v1 + '"';
+	
+		Apiomat.Lowongan_Kerja.getLowongan_Kerjas(y, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+					 
+					 table_2.innerHTML += '<tr>'+'<td>'+ data[i].getJabatan() +'</td>'+'<td>'+data[i].getGaji() +'</td><td>'+data[i].getKualifikasi()+'</td><td>'+data[i].getTipe_pekerjaan() +"</td><td>"+data[i].getLokasi()+"</td><td><a href='lokerView.html?id="+data[i].getID()+"' target='_blank'>Update</a>&nbsp;&nbsp;OR&nbsp;&nbsp;<button onclick=deleteList('"+data[i].getID()+"')>Delete</button></td></tr>";	
+					 
+                };
+            },
+            onError: function(error) {} });	
+    }
+	
+	function deleteList(id) {
+     var z = "id==id"+'('+id+')' ;
+     Apiomat.Lowongan_Kerja.getLowongan_Kerjas(z, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+					 addToDelete(data[i]);
+                };
+            },
+            onError: function(error) {} });	
+    }
+	
+
+	
+	function addToDelete(del) {
+        del.deleteModel({
+            onOk: function() {
+
+                document.getElementById("list_status").innerHTML = "<br> <div class='alert alert-success' role='alert'><strong>OK!</strong> Data berhasil dihapus</div>";
+                   setTimeout(function() {
+                   window.location.href = "dashboard_perusahaan.html";
+                },2000);
+				
+
+            },
+            onError: function(error) {
+                
+            }
+        });
+    }
+	
+
+	
+	
+    
+</script>
+</script>
+</body>
+</html>

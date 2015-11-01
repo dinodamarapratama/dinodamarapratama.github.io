@@ -1,0 +1,60 @@
+p 	{ 	
+	text-align: justify; 
+	margin-bottom: 4pt;  
+	margin-top:0pt; 
+	}
+
+	
+	
+.isitabel
+	{ 
+	font-weight: normal; 
+	font-size: 8pt; 
+	color: #000000; 
+	font-family: DejaVuSansCondensed, 
+	sans-serif; 
+	border-top: 0; 
+	border-bottom: 0; 
+	}
+		
+.isitabel1
+	{  
+	font-family: DejaVuSansCondensed; 
+	font-size: 9pt; 
+	line-height: 1.8; 
+	border-collapse: collapse; 
+	}
+
+.isitabel2
+	{  
+	font-family: DejaVuSansCondensed; 
+	font-size: 7pt; 
+	line-height: 1.8; 
+	border-collapse: collapse; 
+	}
+.isitabel3
+	{  
+	font-family: DejaVuSansCondensed; 
+	font-size: 8pt; 
+	line-height: 1.8; 
+	border-collapse: collapse; 
+	}
+		
+.isi 
+	{ 
+	text-align:center;
+	}
+		
+
+.judul 
+	{ 
+	font-family: "Times New Roman", 
+	Times, serif; 
+	font-size: 10pt; 
+	}
+		
+		
+.garis {
+		border-bottom: 0.075cm solid #000000;
+		}
+	
