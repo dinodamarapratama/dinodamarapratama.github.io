@@ -1,0 +1,402 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Learn Center Flat Responsive Education Website Template | About :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">	
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<meta name="keywords" content="Bootstrap Responsive Templates, Iphone Compatible Templates, Smartphone Compatible Templates, Ipad Compatible Templates, Flat Responsive Templates"/>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script src="js/jquery.min.js"></script>  
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+
+<!---- start-smoth-scrolling---->
+<script>
+$( document ).ready(function() {
+function readphoto(input) {
+    if ( input.files && input.files[0] ) {
+        var FR= new FileReader();
+        FR.onload = function(e) {
+             $('#photo').attr( "src", e.target.result );
+			 $("#photo").attr("width","50%");
+        };       
+        FR.readAsDataURL( input.files[0] );
+    }
+}
+	$("#uploadphoto").change(function(){
+		readphoto( this );
+	});
+});
+</script>
+<style>
+button {
+  margin: 0 10px 0 0;
+  padding: 15px 45px;
+  font-size: 12px;
+  line-height: 1.8;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+  float : right;
+}
+
+button:focus {
+  outline: none
+}
+section.flat button {
+  color: #fff;
+  background-color: #6496c8;
+  text-shadow: -1px 1px #417cb8;
+  border: none;
+}
+
+section.flat button:hover,
+section.flat button.hover {
+  background-color: #346392;
+  text-shadow: -1px 1px #27496d;
+}
+
+section.flat button:active,
+section.flat button.active {
+  background-color: #27496d;
+  text-shadow: -1px 1px #193047;
+}
+</style>
+<script charset="utf-8" src="js/apiomat.js"></script>
+<script charset="utf-8" src="js/jstorage.js"></script>
+</head>
+<body onload="init()">
+	<div class="banner1" id="home">
+		<div class="container">
+			<div class="header">
+				<div class="menu">
+                                     <a class="toggleMenu" href="#"><img src="images/menu-icon.png" alt="" /> </a>
+					<ul class="nav" id="nav">
+					<li class="active"><a href="dashboard-2.html" class="active">Dashboard</a></li>
+					<li><a href="modul-2.html">Modul</a></li>
+					<li><a href="courses-2.html">Kursus</a></li>
+					<li><a href="#">Logout</a></li>
+					</ul>
+                                  <!----start-top-nav-script---->
+		                      <script type="text/javascript" src="js/responsive-nav.js"></script>
+					<script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll").click(function(event){		
+							event.preventDefault();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+						});
+					});
+					</script>
+		<!----//End-top-nav-script---->
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<!--/start-text-slider-->
+		
+	 <!--//text-slider-->
+		</div>
+	</div>
+	<!--start-about-->
+	
+	<!--end-about-->
+	<!--start-vision-->
+	<div class="success">
+		<div class="container">
+			<div class="success-main">
+				<div class="col-md-8 success-left">
+					<h3>Data Pribadi</h3>
+					<div class="success-bottom">
+						<div class="success-bottom-left">
+							<h6>1</h6>
+						</div>
+						<div class="success-bottom-right">
+							<p>Tulis nama lengkap anda berserta gelar pendidikan.</p>
+							<div class="contact-text">
+						    <input id="nama" type="text"  placeholder="Nama" />
+					        </div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="success-bottom">
+						<div class="success-bottom-left">
+							<h6>2</h6>
+						</div>
+						<div class="success-bottom-right">
+							<p>Alamat rumah, kantor atau tempat anda mengajar.</p>
+							<div class="contact-text">
+						    <input id="alamat" type="text"  placeholder="Alamat" />
+					        </div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="success-bottom">
+						<div class="success-bottom-left">
+							<h6>3</h6>
+						</div>
+						<div class="success-bottom-right">
+							<p>Nomor Telp yang dapat dihubungi.</p>
+							<div class="contact-text">
+						    <input id="no_telp" type="text"  placeholder="No.Telepon" />
+					        </div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="success-bottom">
+						<div class="success-bottom-left">
+							<h6>4</h6>
+						</div>
+						<div class="success-bottom-right">
+							<p>Tuliskan latar belakang pendidikan anda.</p>
+							<div class="contact-text">
+						    <div  class="contact-textarea">
+						    <textarea id="pendidikan" value="" ></textarea>
+					        </div>
+					        </div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="success-bottom">
+						<div class="success-bottom-left">
+							<h6>5</h6>
+						</div>
+						<div class="success-bottom-right">
+							<p>Tuliskan pengalaman mengajar anda.</p>
+							<div class="contact-text">
+						    <div class="contact-textarea">
+						    <textarea id="pekerjaan"  value="" ></textarea>
+					        </div>
+					        </div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					
+					<div class="success-bottom">
+						<div class="success-bottom-left">
+							<h6>6</h6>
+						</div>
+						<div class="success-bottom-right">
+							<p>Fokus Mata Pelajaran.</p>
+							<div class="contact-text">
+						    <div class="contact-textarea">
+						    <input id="study" type="text"  placeholder="...." />
+					        </div>
+					        </div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					
+					<section class="flat">
+						<button onclick="save_profile()">Simpan</button> 					
+					</section>
+					<br><br><p id="statusSave" ></p>	
+					
+				</div>
+				
+				<div class="col-md-4 success-right">
+				<h3>Foto Profil</h3>
+				<img id="photo" width="50%" src="images/no-user-image.gif" alt="">
+				<br>
+				<br>
+				<span style="color:#a3a3a3;font-size:15px;font-weight: 300;" >Upload photo</span>
+				<br>
+				<br>
+				<input style="margin-bottom:4px" type='file' id="uploadphoto" />
+				<input style="margin-bottom:5px" type="button" value="Simpan" onclick="save_photo()">
+				
+				<br>	
+				<br>
+				<span id="statusF"></span>
+				<br>	
+				<br>
+				<h4>Kode RTC</h4>
+					<p>Kode ini merupakan akses real time communication pelajar sesuai jadwal kursus anda. </p>
+					<ul>
+						<li><a href="https://apprtc.appspot.com/" target="_blank">Buat Link RTC</a></li>
+					</ul>	
+					<div class="contact-text">
+						    <input id="no_rtc" type="text"  placeholder="kode RCT" />
+					</div>
+					<input style="margin-bottom:5px" type="button" value="Simpan" onclick="save_rtc()">
+				<br>	
+				<br>
+				<span id="statusRtc"></span>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!--end-vision-->
+	<!--start-footer-->
+	
+	<!--end-footer-->
+	
+<script type="text/javascript">
+//var favorite;
+
+var v1 = $.jStorage.get("key_t1");
+var v2 = $.jStorage.get("key_t2")
+var dataLength = 0;
+
+    function init() {
+        var user = new Apiomat.User();
+        user.setUserName("Admin");
+        user.setPassword("12345");
+        Apiomat.Datastore.configure(user);
+        var saveCB = {
+            onOk: function() {    
+            },
+            onError: function(error) {    
+            }
+        };
+        user.loadMe({
+            onOk: function() {
+			loadTask();
+			
+            },
+            onError: function(error) {
+                user.save(saveCB);
+            }
+        });
+    }
+
+
+    function loadTask() {
+		
+        var y = "email==" + '"' + v1 + '"' + " and " + "password==" + '"' + v2 + '"';
+	
+		Apiomat.Teacher.getTeachers(y, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+					 document.getElementById("nama").value = data[i].data.name;
+					 document.getElementById("alamat").value = data[i].data.contact_address;
+					 document.getElementById("no_telp").value = data[i].data.phone;
+					 document.getElementById("pendidikan").value = data[i].data.education_background;
+					 document.getElementById("pekerjaan").value = data[i].data.teaching_experiences;
+					 document.getElementById("study").value = data[i].data.study;
+					 document.getElementById("no_rtc").value = data[i].data.rtc_code;
+					 document.getElementById("photo").src = data[i].data.photo;
+                };
+            },
+            onError: function(error) {} });	
+    }
+
+    
+	function save_profile() {	
+        var y = "email==" + '"' + v1 + '"' + " and " + "password==" + '"' + v2 + '"';
+	
+		Apiomat.Teacher.getTeachers(y, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+					 saveTo_profile(data[i]);
+                };
+            },
+            onError: function(error) {} });	
+    }
+	
+	
+
+    
+
+    function saveTo_profile(task) {
+
+			var nama = document.getElementById("nama").value ;
+			var alamat = document.getElementById("alamat").value ;
+			var no_telp = document.getElementById("no_telp").value ;
+			var pendidikan = document.getElementById("pendidikan").value ;
+			var pekerjaan = document.getElementById("pekerjaan").value ;
+			var study = document.getElementById("study").value
+					 
+            task.setName(nama);
+			task.setContact_address(alamat);
+			task.setPhone(no_telp);
+			task.setEducation_background(pendidikan);
+			task.setTeaching_experiences(pekerjaan);
+			task.setStudy(study);
+
+            task.save({
+                onOk: function() {
+                    document.getElementById("statusSave").innerHTML = '&nbsp;'+ "Berhasil disimpan";
+					setTimeout(function() {document.getElementById("statusSave").innerHTML = "";}, 1000);
+                }, onError: function(error) {}
+            });
+    }
+	
+	
+	function save_photo() {
+        var y = "email==" + '"' + v1 + '"' + " and " + "password==" + '"' + v2 + '"';
+	
+		Apiomat.Teacher.getTeachers(y, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+				saveToPhoto(data[i]);
+                };
+            },
+            onError: function(error) {} });	
+    }
+	
+	function saveToPhoto(data) { 
+		var foto = document.getElementById("photo").src ;
+		data.setPhoto(foto); 
+		data.save({
+		onOk: function() { document.getElementById("statusF").innerHTML = '&nbsp;'+ "Berhasil disimpan";
+		setTimeout(function() {document.getElementById("statusF").innerHTML = "";}, 1000);
+		},
+		onError: function(error) {}
+		}); 
+	}
+	
+	
+	function save_rtc() {
+        var y = "email==" + '"' + v1 + '"' + " and " + "password==" + '"' + v2 + '"';
+	
+		Apiomat.Teacher.getTeachers(y, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+				saveToRtc(data[i]);
+                };
+            },
+            onError: function(error) {} });	
+    }
+	
+	function saveToRtc(data) { 
+		var no_rtc = document.getElementById("no_rtc").value ;
+		data.setRtc_code(no_rtc); 
+		data.save({
+		onOk: function() { document.getElementById("statusRtc").innerHTML = '&nbsp;'+ "Berhasil disimpan";
+		setTimeout(function() {document.getElementById("statusRtc").innerHTML = "";}, 1000);
+		},
+		onError: function(error) {}
+		}); 
+	}
+	
+	
+	
+	
+
+    
+
+  
+
+	
+	
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Learn Center Flat Responsive Education Website Template | Academics :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">	
+<meta name="keywords" content="Bootstrap Responsive Templates, Iphone Compatible Templates, Smartphone Compatible Templates, Ipad Compatible Templates, Flat Responsive Templates"/>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script src="js/jquery.min.js"></script>  
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+
+<!---- start-smoth-scrolling---->
+<script charset="utf-8" src="js/apiomat.js"></script>
+</head>
+<body onload="init()">
+	<div class="banner1" id="home">
+		<div class="container">
+			<div class="header">
+				<div class="menu">
+                                     <a class="toggleMenu" href="#"><img src="images/menu-icon.png" alt="" /> </a>
+					<ul class="nav" id="nav">
+					<li><a href="index.html" class="active">Beranda</a></li>
+					<li><a href="about.html">Tentang Kami</a></li>
+					<li class="active"><a href="teacher.html">Pengajar</a></li>
+					<li><a href="login_register-1.html">Login/Pendaftaran</a></li>
+					</ul>
+                                  <!----start-top-nav-script---->
+		                      <script type="text/javascript" src="js/responsive-nav.js"></script>
+					<script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll").click(function(event){		
+							event.preventDefault();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+						});
+					});
+					</script>
+		<!----//End-top-nav-script---->
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!--start-academics-->
+	<div class="admission">
+		<div class="container">
+			<div class="admi-top">
+				<h3>Pengajar</h3>
+				<div class="admi-main">
+				<div id="teacher_list" class="col-md-12 admi-main-right">
+						
+						
+					</div>
+					
+					
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!--end-admissions-->
+	<!--Slider-Starts-Here-->
+			<script src="js/responsiveslides.min.js"></script>
+			 <script>
+			    // You can also use "$(window).load(function() {"
+			    $(function () {
+			      // Slideshow 4
+			      $("#slider4").responsiveSlides({
+			        auto: true,
+			        pager: true,
+			        nav: true,
+			        speed: 500,
+			        namespace: "callbacks",
+			        before: function () {
+			          $('.events').append("<li>before event fired.</li>");
+			        },
+			        after: function () {
+			          $('.events').append("<li>after event fired.</li>");
+			        }
+			      });
+			
+			    });
+			  </script>
+			<!--End-slider-script-->
+	<!--end-academics-->
+	<!--start-footer-->
+	
+	<!--end-footer-->
+</body>
+<script type="text/javascript">
+
+var dataLength = 0;
+
+    function init() {
+        var user = new Apiomat.User();
+        user.setUserName("Admin");
+        user.setPassword("12345");
+        Apiomat.Datastore.configure(user);
+        var saveCB = {
+            onOk: function() {    
+            },
+            onError: function(error) {    
+            }
+        };
+        user.loadMe({
+            onOk: function() {
+			loadTask();
+			
+            },
+            onError: function(error) {
+                user.save(saveCB);
+            }
+        });
+    }
+
+
+     function loadTask() {
+		
+
+		Apiomat.Teacher.getTeachers(undefined, {
+        onOk: function(data) {
+                for (var i = 0; i < data.length; i++) {
+
+				
+	                 document.getElementById("teacher_list").innerHTML += "<div class='admi-right'><div class='admi-right-left'><h5>"+(i+1)+"</h5></div><div class='admi-right-right'><h6>"+data[i].data.name+"</h6><p>"+data[i].data.study+"</p></div><div class='clearfix'></div></div>";
+                };
+            },
+            onError: function(error) {} });	
+    }
+
+
+</script>
+</html>
