@@ -1,0 +1,26 @@
+var data = [
+  {
+    "ID": "0",
+    "Nama_kuliner": "Dillenia Kitchen",
+    "latitude": "-6.592986",
+    "longitude": "106.804781",
+    "Alamat": "Jalan Pajajaran no. 25 (Apotik Prima) seberang Hotel Pangrango, Bogor, Telp : 0251- 8384491",
+    "Foto_URL":"http://1.bp.blogspot.com/-NwTvhs_JaPk/VdvVI2osLyI/AAAAAAAABFA/SlMWcI8GOkU/s1600/Salmon%2Bbaked%2Brice.jpg"
+  },
+  {
+    "ID": "1",
+    "Nama_kuliner": "Kedai Soto Ibu Rahayu (KSIR)",
+    "latitude": "-6.617547",
+    "longitude": "106.816822",
+    "Alamat": "Jl. Pajajaran No. 117 (Seberang RS mulia).",
+    "Foto_URL":"http://2.bp.blogspot.com/-f2UmFmd19c8/VabL59oAS1I/AAAAAAAAA_4/TcnWpw06d9M/s1600/KSIR3.jpg"
+  },
+  {
+    "ID": "2",
+    "Nama_kuliner": "Macaroni Panggang (MP) Bogor",
+    "latitude": "-6.588405",
+    "longitude": "106.802963",
+    "Alamat": " Jl. Salak No.24 Babakan. (Depan taman kencana, Bogor)",
+    "Foto_URL":"http://4.bp.blogspot.com/-safV_mM0bx0/VPICtRmKpVI/AAAAAAAAAg4/zcLOwZ77E6Y/s1600/1.jpg"
+  }
+];
