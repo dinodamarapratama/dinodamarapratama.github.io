@@ -1,0 +1,13 @@
+var data = [{
+      "nama": "moeslim rock",
+      "video_url": "https://www.youtube.com/embed/USTqFcbg5tM",
+      "lirik": "<p>Naik Naik Kepuncak Gunung<br>Tinggi Tinggi Sekali</p>",
+      "keterangan": "Ini Lagu Apa yah?"
+      },
+      {
+        "nama": "moeslim rock 2",
+        "video_url": "https://www.youtube.com/embed/USTqFcbg5tM",
+        "lirik": "",
+        "keterangan": ""
+      }
+    ];
