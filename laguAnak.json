@@ -9,5 +9,13 @@ var data = [{
         "video_url": "https://www.youtube.com/embed/USTqFcbg5tM",
         "lirik": "",
         "keterangan": ""
+      },
+      {
+        "nama": "Suzan ",
+        "video_url": "https://www.youtube.com/embed/7LHHBfGl6ic",
+        "lirik": "<p>belum ada lirik</p>",
+        "keterangan": "<p>lagu dari depok</p>"
       }
+
+
     ];
