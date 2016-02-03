@@ -1,21 +1,51 @@
 var data = [{
-      "nama": "moeslim rock",
-      "video_url": "https://www.youtube.com/embed/USTqFcbg5tM",
-      "lirik": "<p>Naik Naik Kepuncak Gunung<br>Tinggi Tinggi Sekali</p>",
-      "keterangan": "Ini Lagu Apa yah?"
-      },
-      {
-        "nama": "moeslim rock 2",
-        "video_url": "https://www.youtube.com/embed/USTqFcbg5tM",
-        "lirik": "",
-        "keterangan": ""
-      },
-      {
-        "nama": "Suzan ",
-        "video_url": "https://www.youtube.com/embed/7LHHBfGl6ic",
-        "lirik": "<p>belum ada lirik</p>",
-        "keterangan": "<p>lagu dari depok</p>"
-      }
-
-
-    ];
+  nama: "Ampar – Ampar Pisang",
+  video_url: "https://www.youtube.com/embed/fla7fAk66AI",
+  lirik: "Ampar ampar pisang<br>\n  Pisangku balum masak <br/>\n  Masak bigi di hurung bari - bari <br/>\n  Masak bigi di hurung bari - bari <br/>\n  <br/>\n  Manggalepak manggalepok <br/>\n  Patah kayu bengkok <br/>\n  Bengkok dimakan api <br/>\n  apinya cang curupan <br/>\n  <br/>\n  Nang mana batis kutung <br/>\n  Dikitipi dawang(2 x) <br/>\n  <br/>\n  <br/>\n  Ampar ampar pisang <br/>\n  Pisangku balum masak <br/>\n  Masak bigi di hurung bari - bari <br/>\n  Masak bigi di hurung bari - bari ",
+  keterangan: " Pada awalnya dinyanyikan secara iseng saat masyarakat kalimantan selatan membuat sebuah kue/makanan yang terbuat dari pisang. Makanan ini bernama rimpi. Cara membuat makanan ini adalah dengan cara pisang di diampar (disusun) kemudian dibiarkan hingga hampir matang mendekati busuk. setelah itu pisang dijemur diampar(disusun) di bawah sinar matahari sampai kira kira pisang mengeras dan mengeluarkan bau manis yang sangat khas. Agak mirip dengan sale pisang temen temen kalau dilihat sepintas. "
+}, {
+  nama: "Kicir – Kicir ",
+  video_url: "https://www.youtube.com/watch?v=qcwwp95EecY",
+  lirik: "kicir kicir ini lagunya<br>\n  lagu lama ya tuan dari Jakarta <br/>\n  saya menyanyi ya tuan memang sengaja <br/>\n  untuk menghibur menghibur hati nan duka <br/>\n  <br/>\n  burung dara burung merpati <br/>\n  terbang cepat ya tuan tiada tara <br/>\n  bilalah kita ya tuan suka menyanyi <br/>\n  badanlah sehat ya tuan hati gembira <br/>\n  <br/>\n  buah mangga enak rasanya <br/>\n  si manalagi ya tuan paling ternama <br/>\n  siapa saja ya tuan rajin bekerja <br/>\n  pasti menjadi menjadi warga berguna ",
+  keterangan: " Lagu kicir-kicir ini merupakan lagu yang termasuk dalam kebudayaan nasional, karena kebudayaan dapat merupakan tarian, lagu-lagu daerah dan alat musik yang dilestarikan.bangsa Indonesia merupakan bangsa yang paling beragam kebudayaannya dari mulai bahasa yang digunakan, pakaian adat sampai lagu-lagu dari tiap-tiap daerah pasti memilikinya."
+}, {
+  nama: "Bungong Jeumpa",
+  video_url: "https://www.youtube.com/watch?v=ZfZxIR9vRmk",
+  lirik: "Bungong jeumpa bungong jeumpa meugah di Aceh <br/>\n    Bungong teuleubeh,\n  teuleubeh indah lagoina <br/>\n  Bungong jeumpa bungong jeumpa meugah di Aceh <br/>\n  Bungong teuleubeh,\n  teuleubeh indah lagoina <br/>\n  <br/>\n  Puteh kuneng meujampu mirah <br/>\n  Bungong ulah si ulah indah lagoina <br/>\n  Puteh kuneng meujampu mirah <br/>\n  Bungong sulah i ulah indah lagoina <br/>\n  <br/>\n  Lam sinar buleun lam sinar buleun angeen peu ayon <br/>\n  Luroh meususon,\n  mesuson nyang mala - mala <br/>\n  Lam sinar buleun lam sinar buleun angeen peu ayon <br/>\n  Luroh meususon,\n  mesuson nyang mala - mala <br/>\n  <br/>\n  Keubit that meubee meunoe tatem com <br/>\n  Leupah that harom si bungong jeumpa <br/>\n  Keubit that meubee meunoe tatem com <br/>\n  Leupah that harom si bungong jeumpa ",
+  keterangan: "lagu Bungong Jeumpa berkaitan dengan Kerajaan Jeumpa, Aceh,\n   berdasarkan Ikhtisar Radja Jeumpa yang ditulis Ibrahim Abduh yang disadurnya dari hikayat Radja Jeumpa. Kerajaan Jeumpa adalah sebuah kerajaan yang berkembang pada sekitar abad ke-7 Masehi. Berada di sekitar daerah perbukitan, mulai dari sisi sungai Peudada di sebelah barat sampai Pante Krueng Peusangan di sebelah timur.  Istana Raja Jeumpa sendiri terletak di desa Blang Seupeueng yang dipagari di sebelah utara, sekarang disebut Cot Cibrek Pintoe Ubeuet"
+}, {
+  nama: "Tokecang",
+  video_url: " https://www.youtube.com/watch?v=Ws5PAc-5-P8",
+  lirik: "Tokecang tokecang bala gendir tosblong <br/>\n    Angeun kacang sapependil kosong <br/>\n    <br/>\n    Aya listrik di masigit meuni caang katingalna <br/>\n    Aya istri jangkung alit karangan dina pipina <br/>\n    <br/>\n    Tokecang tokecang bala gendir tosblong <br/>\n    Angeun kacang angeun kacang sapependil kosong ",
+  keterangan: "  Lagu Sunda Tokecang merupakan lagu tradisional anak – anak yang sudah menasionalkan  mulai dari anak – anak hingga orang dewasa mengenal lagu ini karena diajarkan pula di berbagai sekolah. Lagu daerah Sunda ini disukai karena berirama riang bertempo cepat, dengan lirik lagu yang jenaka. Arti dari Tokecang sendiri menurut sejumlah orang adalah singkatan dari Tokek Makan Kacang"
+}, {
+  nama: "Gundul – Gundul Pacul",
+  video_url: "https://www.youtube.com/watch?v=-RaM1pC9rYc ",
+  lirik: "  Gundul gundul pacul cul gelelengan <br/>\n    Nyunggi nyunggi wakul kul gembelengan <br/>\n    <br/>\n    Wakul ngglimpang segane dadi sak rattan <br/>\n    Wakul ngglimpang segane dadi sak rattan ",
+  keterangan: "Tembang Jawa ini konon diciptakan tahun 1400-an oleh Sunan Kalijaga dan teman-temannya yang masih remaja dan mempunyai arti filosofis yg dalam dan sangat mulia."
+}, {
+  nama: "Cublak – Cublak Suweng",
+  video_url: "https://www.youtube.com/watch?v=WfsNDRXWP7o",
+  lirik: "  Cublak cublak suweng <br/>\n    Suwenge ting gelèntèr <br/>\n    Mambu ketundhung gudèl <br/>\n    Pak empong lera - léré <br/>\n    Sapa ngguyu ndelikkaké <br/>\n    Sir sir pong dhelé kopong <br/>\n    Sir sir pong dhelé kopong. ",
+  keterangan: " cublak-cublak suweng (hiasan untuk telinga) merupakan salah satu permaian anak-anak pada masanya. seseorang harus menebak suweng yang disembunyikan teman-temannya, berada di tangan siapa. anak yang tertawa biasanya dialah yang menyembunyikan suweng tersebut. lagu ini juga memiliki makna yang dalam, bahwa suweng merupakan gambaran informasi  yang penting yang harus dicari. informasi ini tidak akan berguna dan mungkin akan dirusak koleh orang yang tidak mengerti. bagi orang yang sudah berpengalaman, ia akan mengetahui mana yang baik dan buruk, mana yang berupa kebohongan  siapa yang mengetahui ada kebohongan akan menertawakan kebohongan tersebut."
+}, {
+  nama: "Yamko Rambe Yamko",
+  video_url: "https: //www.youtube.com/embed/N3G79L3uXu4",
+  lirik: "  Hee yamko rambe yamko <br/>\n    aronawa kombe <br/>\n    Hee yamko rambe yamko <br/>\n    aronawa kombe <br/>\n    <br/>\n    Temino kibe kubano ko bombe ko <br/>\n    Yuma no bungo awe ade <br/>\n    Temino kibe kubano ko bombe ko <br/>\n    Yuma no bungo awe ade <br/>\n    <br/>\n    Hongke hongke hongke riro <br/>\n    Hongke jombe jombe riro <br/>\n    Hongke hongke hongke riro <br/>\n    Hongke jombe jombe riro ",
+  keterangan: " Yamko Rambe Yamko adalah judul lagu daerah yang berasal dari Provinsi Papua, Indonesia. Lagu ini menggambarkan kesan menyenangkan  tetapi berisi kesedihan akibat peperangan, pertikaian dan perlawanan bangsa Indonesia terhadap para penjajah yang terjadi sebelum tahun 1945."
+}, {
+  nama: "Cik Cik Periuk",
+  video_url: "https: //www.youtube.com/embed/Y24uTACu3m4",
+  lirik: "  Cik cik periook bilanga sumping dari jawe <br/>\n    Datang nek krcibook bawa kepiting dua ekook <br/>\n    Cik cik periook bilanga sumping dari jawe <br/>\n    Datang nek kecibook bawa kepiting dua ekook <br/>\n    Cak cak bur dalam bilanga picak iddung gigi rongak <br/>\n    Sape kitawa dolok dipancung raje tunggak hei ",
+  keterangan: " Cik Cik Periuk (atau Cik Cik Periok) adalah lagu daerah dari daerah Kalimantan Barat tepatnya Kabupaten Sambas. Lagu ini tidak diketahui siapa penciptanya, namun menurut masyarakat Sambas lagu ini diciptakan oleh orang asli Dayak di Kalimantan Barat. Selain itu, lagu ini sudah ada sejak 150 tahun yang lalu."
+}, {
+  nama: "Anak Kambing Saya",
+  video_url: "https: //www.youtube.com/embed/9MyfHFGU6tg",
+  lirik: "mana dimana anak kambing saya <br/>\n    anak kambing tuan ada di pohon waru <br/>\n    mana dimana jantung hati saya <br/>\n    jantung hati tuan ada di kampung baru <br/>\n    <br/>\n    caca marica he hei <br/>\n    caca marica he hei <br/>\n    caca marica ada di kampung baru <br/>\n    <br/>\n    caca marica he hey <br/>\n    caca marica he hey <br/>\n    caca marica ada di kampung baru ",
+  keterangan: "  Lagu daerah ini berasal dari Nusa Tenggara Timur yang sejenis lagu yang saling sahut menyahut yang pertamanya bertanya dan ada yang menjawabnya kemudian. Lagu daerah ini dimodifikasi menjadi sedikit modern untuk mempertahankan ke-eksistensiannya di mata anak-anak."
+}, {
+  nama: "Manuk Dadali",
+  video_url: "https: //www.youtube.com/embed/xykaoftiymc",
+  lirik: "  Mesat ngapung luhur jauh di awang - awang <br/>\n    Meberkeun jangjangna bangun taya karingrang <br/>\n    Sukuna ranggaos reujeung pamatukna ngeluk <br/>\n    Ngapak mega bari hiberna tarik nyuruwuk <br/>\n    <br/>\n    Saha anu bisa nyusul kana tandangna <br/>\n    Gandang jeung pertentang taya bandingannana <br/>\n    Dipikagimir dipikaserab ku sasama <br/>\n    Taya karempan kasieun leber wawanenna <br/>\n    <br/>\n    Chorus <br/>\n    Manuk Dadali manuk panggagahna <br/>\n    Perlambang sakti Indonesia Jaya <br/>\n    Manuk Dadali pangkakon carana <br/>\n    Resep ngahiji rukun sakabehna <br/>\n    <br/>\n    Hirup sauyunan tara pahiri - hiri <br/>\n    Silih pikanyaah teu inggis bela pati <br/>\n    Manuk dadali ngandung siloka sinatria <br/>\n    Keur sakumna Bangsa di Nagara Indonesia ",
+  keterangan: " Manuk Dadali adalah lagu berbahasa Sunda ciptaan Sambas Mangundikarta. Manuk Dadali artinya burung Garuda. Lagu ini juga bernafaskan nasionalisme, dengan melukiskan keperkasaan burung garuda dengan lambang dari kejayaan Indonesia. Lagu ini sampai sekarang populer di Jawa Barat, terutama dalam siaran radio RRI."
+}];
