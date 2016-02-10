@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <link href="docs/css/bootstrap.min.css" rel="stylesheet">
+  <link href="docs/css/bootstrap-switch.css" rel="stylesheet">
+  <script src="docs/js/jquery.min.js"></script>
+  <script src="docs/js/bootstrap-switch.js"></script>
+  <script src="http://cdn.pubnub.com/pubnub-3.7.18.min.js"></script>
+  <script type="text/javascript" src="docs/js/lodash.min.js"></script>
+  <style type='text/css'>
+  .panel-default>.panel-heading {
+    color: #fff;
+    background-color: #fd0000;
+    border-color: #ddd;
+    font-weight: bold;
+  }
+  .panel-default>.panel-body img {
+    width: 100%;
+  }
+
+  @media only screen and (min-width: 450px) {
+    .panel-default>.panel-body img {
+      width: 70%;
+    }
+  }
+    @media only screen and (max-width: 800px) {
+      /* Force table to not be like tables anymore */
+      #no-more-tables table,
+      #no-more-tables thead,
+      #no-more-tables tbody,
+      #no-more-tables th,
+      #no-more-tables td,
+      #no-more-tables tr {
+        display: block;
+      }
+      /* Hide table headers (but not display: none;, for accessibility) */
+      #no-more-tables thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      #no-more-tables tr {
+        border: 1px solid #ccc;
+      }
+      #no-more-tables td {
+        /* Behave like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        white-space: normal;
+        text-align: left;
+      }
+      #no-more-tables td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+      }
+      /*
+        Label the data
+        */
+      #no-more-tables td:before {
+        content: attr(data-title);
+      }
+    }
+  </style>
+  <script charset="utf-8" src="docs/js/jstorage.js"></script>
+  <script charset="utf-8" src="docs/js/parse-1.6.12.js"></script>
+  <script type='text/javascript'>
+    //<![CDATA[
+    $(window).load(function() {
+      var nama = "";
+      var email = "";
+      var no_telp = "";
+      $('#set_day').text("Pilih hari : " + $.jStorage.get("get_day"));
+      Parse.initialize('myAppId', 'myJavascriptKey');
+      Parse.serverURL = 'https://sheltered-plains-7397.herokuapp.com/parse';
+      var user = Parse.Object.extend("user");
+      var ordered = Parse.Object.extend("order");
+      var service = Parse.Object.extend("service");
+      var query = new Parse.Query(user);
+      query.equalTo("email", $.jStorage.get("email_dilo"));
+      query.equalTo("password", $.jStorage.get("password_dilo"));
+      query.find({
+        success: function(results) {
+          nama = results[0].get('nama');
+          email = results[0].get('email');
+          no_telp = results[0].get('no_telp');
+        },
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
+      });
+
+      var query = new Parse.Query(service);
+      query.equalTo("type", "fr");
+      query.find({
+        success: function(object) {
+          document.getElementById('tName').innerHTML = object[0].get("name");
+          document.getElementById('tPrice').innerHTML = object[0].get("price");
+          document.getElementById('tDesc').innerHTML = object[0].get("description");
+          document.getElementById('tPic').src = object[0].get("photo")._url;
+        },
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
+      });
+
+      $("#day").change(function() {
+        $.jStorage.set("get_day", $("#day option:selected").val());
+        location.reload();
+      });
+
+
+      $("[name='my-checkbox']").bootstrapSwitch();
+      $('input[name="my-checkbox"]').bootstrapSwitch('onText', 'Pesan');
+      $('input[name="my-checkbox"]').bootstrapSwitch('offText', 'OK');
+      $('input[name="my-checkbox"]').bootstrapSwitch('size', 'mini');
+      $('input[name="my-checkbox"]').bootstrapSwitch('labelWidth', 'auto');
+      $('input[name="my-checkbox"]').bootstrapSwitch('handleWidth', '40');
+
+
+      pubnub = PUBNUB({
+        publish_key: 'pub-c-40d8dae8-263f-4ccd-8e38-e154a9899ad4',
+        subscribe_key: 'sub-c-9756bdb0-a4c8-11e4-bf84-0619f8945a4f',
+        uuid: 'client'
+      })
+
+      pubnub.history({
+
+        channel: 'Channel-f6pc12704',
+        callback: function(m) {
+          var m_array = [];
+          for (i = 0; i < m[0].length; i++) {
+            m_array.push(m[0][i]);
+          }
+
+          var m_array_2 = (_.uniq(m_array, 'id'));
+
+          for (i = 0; i < m_array_2.length; i++) {
+            var m_array_3 = _.filter(m_array, function(n) {
+              return n.id == m_array_2[i].id;
+            });
+
+            console.log(_.last(m_array_3));
+            if (_.last(m_array_3).command == "Order!" && _.last(m_array_3).day == $.jStorage.get("get_day")) {
+              $('#' + _.last(m_array_3).id).bootstrapSwitch('toggleDisabled', true);
+            }
+            if (_.last(m_array_3).command == "Open!") {
+              //$('#'+ _.last(m_array_3).id).bootstrapSwitch('toggleDisabled', false);
+            }
+          }
+        },
+        count: 100, // 100 is the default
+        reverse: false // false is the default
+
+      });
+
+      console.log("Subscribing..");
+      pubnub.subscribe({
+        channel: "Channel-f6pc12704",
+        message: function(message) {
+          if (message.command == "Order!" && message.day == $.jStorage.get("get_day")) {
+            $('#' + message.id).bootstrapSwitch('toggleDisabled', true);
+          }
+
+          if (message.command == "Open!" && message.day == $.jStorage.get("get_day")) {
+            $('#' + message.id).bootstrapSwitch('toggleDisabled', false);
+          }
+        }
+      })
+
+
+      $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
+
+        var order = new ordered();
+        order.set("name", nama);
+        order.set("email", email);
+        order.set("no_telp", no_telp);
+        order.set("status", "belum dibayar");
+        order.set("type", "fr");
+        order.set("switchId", event.target.id);
+        order.set("day", $.jStorage.get("get_day"));
+        order.save(null, {
+          success: function(signup) {
+            //document.getElementById("statusS").innerHTML = "<div class='alert alert-success' role='alert' id='success_message'>Sukses <i class='glyphicon glyphicon-thumbs-up'></i> Pemesanan Berhasil.</div>";
+            //popup
+            alert("Pemesanan Berhasil")
+            setTimeout(function() {
+              window.location.href = "reservation4.html";
+            }, 3000);
+
+          },
+          error: function(signup, error) {
+            alert('Failed to create new object, with error code: ' + error.message);
+          }
+        });
+
+        $('#' + event.target.id).bootstrapSwitch('toggleDisabled', true);
+
+        if (state == false) {
+          pubnub = PUBNUB({
+            publish_key: 'pub-c-40d8dae8-263f-4ccd-8e38-e154a9899ad4',
+            subscribe_key: 'sub-c-9756bdb0-a4c8-11e4-bf84-0619f8945a4f',
+            uuid: 'client'
+          })
+
+          pubnub.publish({
+            channel: "Channel-f6pc12704",
+            message: {
+              "command": "Order!",
+              "date": new Date(),
+              "id": event.target.id,
+              "day": $.jStorage.get("get_day"),
+              "name": nama,
+              "email": email,
+              "no_telp": no_telp
+            },
+          })
+        }
+
+      });
+
+      startTime();
+
+      var date = new Date();
+      var day = ("0" + date.getDate()).slice(-2);
+      var month = ("0" + (date.getMonth() + 1)).slice(-2);
+      var year = date.getFullYear();
+      document.getElementById("today").innerHTML = "<b>Tanggal : </b>" + day + "-" + month + "-" + year + " | ";
+
+      function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML =
+          h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+      }
+
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i
+        }; // add zero in front of numbers < 10
+        return i;
+      }
+
+    }); //]]>
+  </script>
+  <style>
+    .navbar-default {
+      background-color: #fd0000;
+      border-color: #fd0000;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" width="25px" src="docs/img/logo.png">
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center">
+          <select id="day" name="state" class="form-control selectpicker">
+            <option id="set_day">Pilih hari :</option>
+            <option>Senin</option>
+            <option>Selasa</option>
+            <option>Rabu</option>
+            <option>Kamis</option>
+            <option>Jumat</option>
+            <option>Sabtu</option>
+            <option>Minggu</option>
+          </select>
+
+        </h2>
+        <div class="panel panel-default">
+          <div class="panel-heading" id="tName"></div>
+          <div class="panel-body">
+            <p style="text-align:center"><img id="tPic"/></p>
+            <p style='margin-bottom:2px' id="tDesc"></p>
+            <p>Rp : <span id="tPrice" style="font-weight:bold"></span></p>
+          </div>
+        </div>
+        <div class="text-center">
+          <p id="today" style="display:inline"></p>
+          <p id="txt" style="display:inline"></p>
+        </div><br>
+      </div>
+
+      <div id="no-more-tables">
+        <table class="col-sm-12 table-bordered table-striped table-condensed cf">
+          <thead class="cf">
+            <tr>
+              <th> Jam </th>
+              <th> Ruangan </th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-title="Jam">09:00 - 15:00 / 12:00 - 20:00</td>
+              <td data-title="Meja">
+                <input id="a1_d" type="checkbox" name="my-checkbox" checked>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p id="statusS"></p>
+
+    </div>
+  </div>
+</body>
+
+</html>

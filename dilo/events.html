@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <link href="docs/css/bootstrap.min.css" rel="stylesheet">
+  <link href="docs/css/bootstrap-switch.css" rel="stylesheet">
+  <script src="docs/js/jquery.min.js"></script>
+  <script src="docs/js/bootstrap-switch.js"></script>
+  <style type='text/css'>
+    .panel-default>.panel-heading {
+      color: #fff;
+      background-color: #fd0000;
+      border-color: #ddd;
+      font-weight: bold;
+    }
+    .panel-default>.panel-body img {
+      width: 100%;
+    }
+
+    @media only screen and (min-width: 450px) {
+      .panel-default>.panel-body img {
+        width: 70%;
+      }
+    }
+
+  </style>
+  <script charset="utf-8" src="docs/js/jstorage.js"></script>
+  <script charset="utf-8" src="docs/js/parse-1.6.12.js"></script>
+  <script type='text/javascript'>
+  Parse.initialize('myAppId', 'myJavascriptKey');
+  Parse.serverURL = 'https://sheltered-plains-7397.herokuapp.com/parse';
+  var events = Parse.Object.extend("events");
+
+    $(window).load(function() {
+      var query = new Parse.Query(events);
+      query.ascending("createdAt");
+      query.find({
+        success: function(object) {
+          for (var i = 0; i < object.length; i++) {
+          document.getElementById('eventsList').innerHTML += "<div class=' panel panel-default' ><div class=' panel-heading' >"+ object[i].get("title") +"</div><div class=' panel-body' ><p style=' text-align:center' ><img src="+ object[i].get("photo")._url +"/></p><p style='margin-bottom:2px'  >"+ object[i].get("description") +"</p></div></div>" ;
+        }
+        },
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
+      });
+
+
+    });
+  </script>
+  <style>
+    .navbar-default {
+      background-color: #fd0000;
+      border-color: #fd0000;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" width="25px" src="docs/img/logo.png">
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" id="eventsList">
+
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>

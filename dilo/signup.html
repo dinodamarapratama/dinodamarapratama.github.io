@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <link href="docs/css/bootstrap.min.css" rel="stylesheet">
+  <link href="docs/css/bootstrap-switch.css" rel="stylesheet">
+  <script src="docs/js/jquery.min.js"></script>
+  <script src="docs/js/bootstrap-switch.js"></script>
+  <script type="text/javascript" src="docs/js/lodash.min.js"></script>
+  <script src="docs/js/bootstrap.min.js"></script>
+  <script charset="utf-8" src="docs/js/jstorage.js"></script>
+  <script charset="utf-8" src="docs/js/parse-1.6.12.js"></script>
+  <script src="docs/js/aes.js"></script>
+  <style>
+    body {
+      background: #eee !important;
+    }
+    .navbar-default {
+      background-color: #fd0000;
+      border-color: #fd0000;
+    }
+
+    .navbar-default .navbar-toggle {
+      border-color: #fd0000;
+    }
+
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+      background-color: #fd0000;
+    }
+
+    .navbar-default .navbar-nav>.active>a,
+    .navbar-default .navbar-nav>.active>a:hover,
+    .navbar-default .navbar-nav>.active>a:focus {
+      color: #555;
+      background-color: #fff;
+    }
+
+    .navbar-default .navbar-nav>li>a {
+      color: #fff;
+    }
+
+    .navbar-default .navbar-nav>li>a:hover {
+      color: #fff;
+    }
+
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+      border-color: #fd0000;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Static navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" width="25px" src="docs/img/logo.png">
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <!-- <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Nav header</li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li> -->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="login.html">Masuk<span class="sr-only">(current)</span></a></li>
+          <li class="active"><a href="signup.html">Daftar</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
+  <div class="container">
+    <form class="well form-horizontal" action=" " method="post" id="contact_form">
+      <fieldset>
+        <!-- Form Name -->
+        <legend>Pendaftaran</legend>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Nama Lengkap</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input id="s0" name="first_name" placeholder="Nama Anda" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+        <!-- Text input-->
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">E-Mail</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+              <input id="s1" name="email" placeholder="Alamat E-Mail" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">No.Telepon</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+              <input id="s2" name="phone" placeholder="0859-xxx-xxx" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Alamat</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+              <input id="s3" name="address" placeholder="Address" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+
+        <!-- Select Basic -->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Status</label>
+          <div class="col-md-4 selectContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+              <select id="s4" name="state" class="form-control selectpicker">
+                <option value="">Pilih status anda :</option>
+                <option value="Pelajar">Pelajar</option>
+                <option value="Mahasiswa">Mahasiswa</option>
+                <option value="Startup">Startup</option>
+                <option value="Profesional">Profesional</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Password</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-eye-open"></i></span>
+              <input id="s5" name="website" placeholder="Password" class="form-control" type="password">
+            </div>
+          </div>
+        </div>
+
+        <!-- radio checks -->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Jenis Kelamin?</label>
+          <div class="col-md-4">
+            <form id="myForm">
+              <input type="radio" name="gender" value="laki-laki" /> Laki-laki
+              <br />
+              <input type="radio" name="gender" value="perempuan" /> Perempuan
+              <br />
+            </form>
+          </div>
+        </div>
+
+
+        <!-- Success message -->
+        <p id="statusS"></p>
+
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <button id="buttonS" type="button" onclick="daftar()" class="btn btn-primary">Simpan
+              <span class="glyphicon glyphicon-floppy-saved"></span>
+            </button>
+          </div>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+
+
+</body>
+<script>
+  Parse.initialize('myAppId','myJavascriptKey');
+  Parse.serverURL = 'https://sheltered-plains-7397.herokuapp.com/parse';
+  var user = Parse.Object.extend("user");
+
+  function daftar() {
+    $('#buttonS').prop('disabled', true);
+    var x = document.getElementById("s1").value;
+    var query = new Parse.Query(user);
+    query.equalTo("email", x);
+    query.find({
+      success: function(results) {
+        if (results.length == 1) {
+          $('#buttonS').prop('disabled', false);
+          document.getElementById("statusS").innerHTML = "<div class='alert alert-danger'><strong>Maaf!</strong> Email telah digunakan user lain.</div>";
+        } else {
+          daftar_user();
+        }
+      },
+      error: function(error) {
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });
+  }
+
+
+  function daftar_user() {
+    var a = $("#s0").val();
+    var b = $("#s1").val();
+    var c = $("#s2").val();
+    var d = $("#s3").val();
+    var e = $( "#s4 option:selected" ).val();
+    var f = $("#s5").val();
+    var h = $('input:radio[name=gender]:checked').val();
+    var encrypted = CryptoJS.AES.encrypt(f, f);
+    $('#buttonS').prop('disabled', true);
+    if (a != "" && b != "" && c != "" && d != "" && e != "" && f != "" ) {
+      var signup = new user();
+      signup.set("nama", a);
+      signup.set("email", b);
+      signup.set("no_telp", c);
+      signup.set("alamat", d);
+      signup.set("status", e);
+      signup.set("password", encrypted.toString());
+      signup.set("jenis_kelamin", h);
+      signup.save(null, {
+        success: function(signup) {
+          $.jStorage.set("email_dilo", b);
+          $.jStorage.set("password_dilo", encrypted.toString());
+          document.getElementById("statusS").innerHTML = "<div class='alert alert-success' role='alert' id='success_message'>Sukses <i class='glyphicon glyphicon-thumbs-up'></i> Pendaftaran Berhasil.</div>";
+          setTimeout(function() {
+            window.location.href = "dashboard.html";
+          }, 3000);
+        },
+        error: function(signup, error) {
+          alert('Failed to create new object, with error code: ' + error.message);
+        }
+      });
+    } else {
+      document.getElementById("statusS").innerHTML = "<div class='alert alert-danger'><strong>Maaf!</strong> Mohon isi semua data.</div>";
+      $('#buttonS').prop('disabled', false);
+    }
+  }
+</script>
+
+</html>

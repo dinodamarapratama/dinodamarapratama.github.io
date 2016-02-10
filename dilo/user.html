@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <link href="docs/css/bootstrap.min.css" rel="stylesheet">
+  <link href="docs/css/bootstrap-switch.css" rel="stylesheet">
+  <script src="docs/js/jquery.min.js"></script>
+  <script src="docs/js/bootstrap-switch.js"></script>
+  <script type="text/javascript" src="docs/js/lodash.min.js"></script>
+  <script src="docs/js/bootstrap.min.js"></script>
+  <script charset="utf-8" src="docs/js/jstorage.js"></script>
+  <script charset="utf-8" src="docs/js/parse-1.6.12.js"></script>
+  <script src="docs/js/aes.js"></script>
+  <style>
+    body {
+      background: #eee !important;
+    }
+
+    .navbar-default {
+      background-color: #fd0000;
+      border-color: #fd0000;
+    }
+
+    .navbar-default .navbar-toggle {
+      border-color: #fd0000;
+    }
+
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+      background-color: #fd0000;
+    }
+
+    .navbar-default .navbar-nav>.active>a,
+    .navbar-default .navbar-nav>.active>a:hover,
+    .navbar-default .navbar-nav>.active>a:focus {
+      color: #555;
+      background-color: #fff;
+    }
+
+    .navbar-default .navbar-nav>li>a {
+      color: #fff;
+    }
+
+    .navbar-default .navbar-nav>li>a:hover {
+      color: #fff;
+    }
+
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+      border-color: #fd0000;
+    }
+  </style>
+
+  <script>
+    Parse.initialize('myAppId', 'myJavascriptKey');
+    Parse.serverURL = 'https://sheltered-plains-7397.herokuapp.com/parse';
+    var user = Parse.Object.extend("user");
+
+    function saveUser() {
+      var query = new Parse.Query(user);
+      query.equalTo("email", $.jStorage.get("email_dilo"));
+      query.equalTo("password", $.jStorage.get("password_dilo"));
+      query.find({
+        success: function(object) {
+          for (var i = 0; i < object.length; i++) {
+            object[i].set("nama", $('#s0').val());
+            object[i].set("no_telp", $('#s2').val());
+            object[i].set("alamat", $('#s3').val());
+            object[i].set("status", $("#s4 option:selected").val());
+            object[i].set("jenis_kelamin", $('input:radio[name=gender]:checked').val());
+            object[i].save()
+            document.getElementById("statusS").innerHTML = "<div class='alert alert-success' role='alert' id='success_message'>Ok <i class='glyphicon glyphicon-thumbs-up'></i> Berhasil Disimpan.</div>";
+            setTimeout(function() {
+              document.getElementById("statusS").innerHTML = "";
+            }, 3000);
+          }
+
+        },
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(window).load(function() {
+
+      var query = new Parse.Query(user);
+      query.equalTo("email", $.jStorage.get("email_dilo"));
+      query.equalTo("password", $.jStorage.get("password_dilo"));
+      query.find({
+        success: function(results) {
+
+          document.getElementById("s0").value = results[0].get('nama');
+          document.getElementById("s2").value = results[0].get('no_telp');
+          document.getElementById("s3").value = results[0].get('alamat');
+          document.getElementById("s4").value = results[0].get('status');
+          document.getElementById(results[0].get('jenis_kelamin')).checked = true;
+
+        },
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
+      });
+
+
+
+    });
+  </script>
+</head>
+
+<body>
+  <!-- Static navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" width="25px" src="docs/img/logo.png">
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <form class="well form-horizontal" action=" " method="post" id="contact_form">
+      <fieldset>
+        <!-- Form Name -->
+        <legend>Pendaftaran</legend>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Nama Lengkap</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input id="s0" name="first_name" placeholder="Nama Anda" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+        <!-- Text input-->
+        <!-- Text input-->
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">No.Telepon</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+              <input id="s2" name="phone" placeholder="0859-xxx-xxx" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Alamat</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+              <input id="s3" name="address" placeholder="Address" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+
+        <!-- Select Basic -->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Status</label>
+          <div class="col-md-4 selectContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+              <select id="s4" name="state" class="form-control selectpicker">
+                <option value="">Pilih status anda :</option>
+                <option value="Pelajar">Pelajar</option>
+                <option value="Mahasiswa">Mahasiswa</option>
+                <option value="Startup">Startup</option>
+                <option value="Profesional">Profesional</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+
+
+        <!-- radio checks -->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Jenis Kelamin?</label>
+          <div class="col-md-4">
+            <form id="myForm">
+              <input type="radio" name="gender" id="laki-laki" value="laki-laki" /> Laki-laki
+              <br />
+              <input type="radio" name="gender" id="perempuan" value="perempuan" /> Perempuan
+              <br />
+            </form>
+          </div>
+        </div>
+
+
+        <!-- Success message -->
+        <p id="statusS"></p>
+
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <button id="buttonS" type="button" onclick="saveUser()" class="btn btn-primary">Simpan
+              <span class="glyphicon glyphicon-floppy-saved"></span>
+            </button>
+          </div>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+
+
+</body>
+
+</html>

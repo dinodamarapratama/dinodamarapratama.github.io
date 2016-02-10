@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <link href="docs/css/bootstrap.min.css" rel="stylesheet">
+  <link href="docs/css/bootstrap-switch.css" rel="stylesheet">
+  <script src="docs/js/jquery.min.js"></script>
+  <script src="docs/js/bootstrap-switch.js"></script>
+  <script src="http://cdn.pubnub.com/pubnub-3.7.18.min.js"></script>
+  <script type="text/javascript" src="docs/js/lodash.min.js"></script>
+  <script src="docs/js/bootstrap.min.js"></script>
+  <script charset="utf-8" src="docs/js/jstorage.js"></script>
+  <script charset="utf-8" src="docs/js/parse-1.6.12.js"></script>
+  <script src="docs/js/aes.js"></script>
+  <style>
+    .navbar-default {
+      background-color: #fd0000;
+      border-color: #fd0000;
+    }
+
+    .navbar-default .navbar-toggle {
+      border-color: #fd0000;
+    }
+
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+      background-color: #fd0000;
+    }
+
+    .navbar-default .navbar-nav>.active>a,
+    .navbar-default .navbar-nav>.active>a:hover,
+    .navbar-default .navbar-nav>.active>a:focus {
+      color: #555;
+      background-color: #fff;
+    }
+
+    .navbar-default .navbar-nav>li>a {
+      color: #fff;
+    }
+
+    .navbar-default .navbar-nav>li>a:hover {
+      color: #fff;
+    }
+
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+      border-color: #fd0000;
+    }
+  </style>
+
+  <script>
+    Parse.initialize('myAppId', 'myJavascriptKey');
+    Parse.serverURL = 'https://sheltered-plains-7397.herokuapp.com/parse';
+    var order = Parse.Object.extend("order");
+
+    var dayId,switchId;
+
+    function addOrder(id, day, idSwitch) {
+      document.getElementById("orderId").innerHTML = id;
+      dayId = day;
+      switchId = idSwitch;
+    }
+
+    function process(){
+      pubnub = PUBNUB({
+        publish_key: 'pub-c-40d8dae8-263f-4ccd-8e38-e154a9899ad4',
+        subscribe_key: 'sub-c-9756bdb0-a4c8-11e4-bf84-0619f8945a4f',
+        uuid: 'admin'
+      })
+
+      pubnub.publish({
+        channel: "Channel-f6pc12704",
+        message: {
+          "command": "Open!",
+          "day": dayId,
+          "id": switchId
+        },
+      })
+      var query = new Parse.Query(order);
+        query.get(document.getElementById("orderId").innerHTML, {
+          success: function(results) {
+            console.log(results);
+            results.set("status", "batal");
+            results.set("createdAt", new Date());
+            results.save();
+            document.getElementById("status").innerHTML = "<div class='alert alert-success' role='alert' id='success_message'> Ok <i class='glyphicon glyphicon-thumbs-up'></i> Pembatalan berhasil.</div>";
+            setTimeout(function() {
+              window.location.href = "orderList.html";
+            }, 2000);
+          },
+          error: function(object, error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        })
+    }
+
+    $(window).load(function() {
+
+      var query = new Parse.Query(order);
+      query.equalTo("email", $.jStorage.get("email_dilo"));
+      query.equalTo("status", "belum dibayar");
+      query.ascending("createdAt");
+      query.find({
+        success: function(object) {
+          for (var i = 0; i < object.length; i++) {
+            document.getElementById('orderList').innerHTML += "<tr>" + "<td>" + object[i].id + "</td>" + "<td>" + ("0" + object[i].createdAt.getDate()).slice(-2) + "/" + ("0" + (object[i].createdAt.getMonth() + 1)).slice(-2) + "/" + object[i].createdAt
+              .getFullYear() + " @ " + object[i].createdAt.getHours() + ":" + object[i].createdAt
+              .getMinutes() + "</td>" + "<td>" + object[i].get("day") + "</td>" + "<td>" + object[i].get("type") + "</td>" + "<td>" +
+              "<p>"+object[i].get("status")+"</td><td text-align:center> <a class='btn btn-default' href='#'  data-toggle='modal' data-target='#myModal' onclick='addOrder(" + '"' + object[i].id + '"' + ',"' + object[i].get("day") + '"' + ',"' + object[i].get("switchId") + '"' +
+              ")' ><i class='glyphicon glyphicon-remove'></i></a><p>" + "</td>" + "</tr>";
+          }
+        },
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
+      });
+
+
+
+    });
+  </script>
+</head>
+
+<body>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Batal Pesan</h4>
+        </div>
+        <div class="modal-body">
+          <p>ID : <span id="orderId"></span></p>
+          <p><b>Batalkan Pemesanan?</b></p>
+          <p id="status"></p>
+        </div>
+        <div class="modal-footer">
+          <button id="process" type="button" onclick="process()" class="btn btn-success">Ya</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Static navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" width="25px" src="docs/img/logo.png">
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-condensed cf">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tgl Pesan</th>
+            <th>Hari Sewa</th>
+            <th>Tipe Sewa</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="orderList">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Dashboard Template for Bootstrap</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="dashboard.css" rel="stylesheet">
+  <link href="bootstrap-switch.css" rel="stylesheet">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap-switch.js"></script>
+  <script type="text/javascript" src="lodash.min.js"></script>
+  <script charset="utf-8" src="jstorage.js"></script>
+  <script charset="utf-8" src="parse-1.6.12.js"></script>
+
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <script type='text/javascript'>
+    Parse.initialize('myAppId', 'myJavascriptKey');
+    Parse.serverURL = 'https://sheltered-plains-7397.herokuapp.com/parse';
+    var order = Parse.Object.extend("order");
+    var orderCafe = Parse.Object.extend("orderCafe");
+
+    function process() {
+      var query = new Parse.Query(order);
+        query.get(document.getElementById('orderId').value, {
+          success: function(results) {
+            console.log(results)
+            if (results) {
+              results.set("status", $("#opt option:selected").val());
+              results.set("createdAt", new Date());
+              results.save();
+              document.getElementById("status").innerHTML = "<div class='alert alert-success' role='alert' id='success_message'>Ok <i class='glyphicon glyphicon-thumbs-up'></i> Berhasil Disimpan.</div>";
+              setTimeout(function() {
+                window.location.href = "rollback.html";
+              }, 2000);
+            }
+          },
+          error: function(object, error) {
+
+          }
+        })
+
+
+      var query = new Parse.Query(orderCafe);
+        query.get(document.getElementById('orderId').value, {
+          success: function(results) {
+            console.log(results)
+            if (results) {
+              results.set("status", $("#opt option:selected").val());
+              results.set("createdAt", new Date());
+              results.save();
+              document.getElementById("status").innerHTML = "<div class='alert alert-success' role='alert' id='success_message'>Ok <i class='glyphicon glyphicon-thumbs-up'></i> Berhasil Disimpan.</div>";
+              setTimeout(function() {
+                window.location.href = "rollback.html";
+              }, 2000);
+            }
+          },
+          error: function(object, error) {
+
+          }
+        })
+
+    }
+  </script>
+</head>
+
+<body>
+
+
+
+  <nav class="navbar navbar-dark navbar-fixed-top bg-inverse">
+    <button type="button" class="navbar-toggler hidden-sm-up" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">DI.LO Depok</a>
+    <div id="navbar">
+      <nav class="nav navbar-nav pull-xs-left">
+        <!-- <a class="nav-item nav-link" href="#">Dashboard</a> -->
+      </nav>
+      <div class="pull-xs-right">
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li><a href="menuList.html">Cafe Menu</a></li>
+          <li><a href="orderListCafe.html">Digi Cafe</a></li>
+          <li><a href="eventList.html">Events</a></li>
+          <li><a href="overview.html">Overview <span class="sr-only">(current)</span></a></li>
+          <li class="active"><a href="orderList.html">Order List</a></li>
+          <li><a href="report.html">Reports</a></li>
+          <li><a href="rollback.html">Rollback</a></li>
+          <li><a href="serviceList.html">Services</a></li>
+        </ul>
+      </div>
+
+
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <p style="font-weight:bold">Rollback<a class='btn btn-default btn-sm' data-toggle='modal' href='#'><i class='fa fa-check-circle-o'></i></a></p>
+        <div class="form-group">
+          <label for="usr">ID Order </label>
+          <input type="text" class="form-control" id="orderId">
+        </div>
+        <div class="form-group">
+          <select id="opt" name="state" class="form-control selectpicker">
+            <option>lunas</option>
+            <option>belum dibayar</option>
+            <option>dihapus</option>
+          </select>
+        </div>
+        <button type="button" id="process" onclick="process()" class="btn btn-success">Simpan</button>
+          <br><br><p class="help-block" id="status"></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../docs/js/bootstrap.min.js"></script>
+</body>
+
+</html>

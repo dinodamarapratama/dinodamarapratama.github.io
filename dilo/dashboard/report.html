@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title></title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="dashboard.css" rel="stylesheet">
+  <link href="bootstrap-switch.css" rel="stylesheet">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap-switch.js"></script>
+  <script type="text/javascript" src="lodash.min.js"></script>
+  <script charset="utf-8" src="jstorage.js"></script>
+  <script charset="utf-8" src="parse-1.6.12.js"></script>
+  <script charset="utf-8" src="notify.js"></script>
+  <script charset="utf-8" src="lodash.js"></script>
+  <script type="text/javascript" src="jspdf.js"></script>
+  <script type="text/javascript" src="libs/FileSaver.js/FileSaver.js"></script>
+  <script type="text/javascript" src="libs/Deflate/deflate.js"></script>
+  <script type="text/javascript" src="libs/Deflate/adler32cs.js"></script>
+  <script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+  <script type="text/javascript" src="jspdf.debug.js"></script>
+
+  <script type='text/javascript'>
+    function printPDF() {
+      var data = [],
+        fontSize = 14,
+        height = 0,
+        doc;
+
+      var date = new Date();
+      var minute = date.getMinutes();
+      var hour = date.getHours();
+      var day = ("0" + date.getDate()).slice(-2);
+      var month = ("0" + (date.getMonth() + 1)).slice(-2);
+      var year = date.getFullYear();
+      var time1b = day + "" + month + "" + year;
+      var time3 = hour + "" + minute + "" + new Date().getSeconds();
+
+      var pdf = new jsPDF('p', 'pt', 'letter');
+      pdf.setFont("courier", "bold");
+      pdf.setFontSize(fontSize);
+
+      console.log(title)
+
+      pdf.text(20, 30, title);
+      pdf.setFont("courier", "normal");
+      pdf.setFontSize(fontSize);
+
+      imgData =
+        "data:image/jpeg;base64,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"
+      pdf.addImage(imgData, 'JPEG', 500, 15, 80, 34);
+      pdf.setFontSize(9);
+
+      source = $('#testTable')[0];
+      specialElementHandlers = {
+        '#bypassme': function(element, renderer) {
+          return true
+        }
+      };
+      margins = {
+        top: 50,
+        bottom: 60,
+        left: 40,
+        width: 1000
+      };
+      pdf.setFontSize(fontSize);
+      pdf.setFont("courier", "normal");
+      pdf.fromHTML(
+        source,
+        margins.left,
+        margins.top, {
+          'width': margins.width,
+          'elementHandlers': specialElementHandlers
+        },
+
+        function(dispose) {
+          pdf.save("LaporanPendapatan" + time1b + "" + time3 + ".pdf");
+        }, margins);
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <script type='text/javascript'>
+    Parse.initialize('myAppId', 'myJavascriptKey');
+    Parse.serverURL = 'https://sheltered-plains-7397.herokuapp.com/parse';
+    var order = Parse.Object.extend("order");
+    var orderCafe = Parse.Object.extend("orderCafe");
+    var service = Parse.Object.extend("service");
+    var objectArray = [];
+    var idList = [];
+    var title = "";
+
+
+    function sum(vCash) {
+      var data = $('#orderList tr td p');
+      var cafe = $('#orderListCafe tr td p');
+      var total = vCash;
+      var dilo = 0;
+      var totalCafe = 0;
+      for (var i = 0; i < data.length; i++) {
+        total += Number(data[i].innerHTML);
+        dilo += Number(data[i].innerHTML);
+      };
+      for (var i = 0; i < cafe.length; i++) {
+        total += Number(cafe[i].innerHTML);
+        totalCafe += Number(cafe[i].innerHTML);
+      };
+      document.getElementById('dilo').innerHTML = dilo;
+      document.getElementById('cafe').innerHTML = totalCafe;
+      document.getElementById('total').innerHTML = total;
+      return vCash = total;
+    }
+
+    function process() {
+      var query = new Parse.Query(order);
+      for (var i = 0; i < idList.length; i++) {
+        query.get(idList[i], {
+          success: function(results) {
+            console.log(results);
+            results.set("status", "lunas");
+            results.save();
+          },
+          error: function(object, error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        })
+      };
+    }
+
+    function inputCash() {
+      document.getElementById('cashback').innerHTML = $('#cash').val() - sum(0);
+    }
+
+    function getPrice(id) {
+      var object = _.filter(objectArray, function(item) {
+        return item.type == id;
+      });
+      return id = object[0].price
+    }
+
+    function addList(id, type) {
+      if (_.includes(idList, id) == true) {
+        $.notify('Telah Ditambahkan', 'error');
+      } else {
+        idList.push(id);
+        document.getElementById('listPayment').innerHTML += "<tr id='" + id + "'>" + "<td>" + id + "</td>" + "<td>" + type + "</td>" + "<td ><p style='display:inline'>" + getPrice(type) + "</p>" +
+          " <a class='btn btn-default btn-sm' style='display:inline' onclick='removeList(" + '"' + id + '"' + ',' +
+          getPrice(type) + ")'><i class='fa fa-trash-o'></i></a></td>" + "</tr>";
+        $.notify('Berhasil Ditambahkan', 'success');
+        inputCash();
+      }
+    }
+
+    function removeList(id, price) {
+      $('#' + id).remove();
+      inputCash();
+      _.pull(idList, id);
+    }
+
+    $(window).load(function() {
+
+
+
+      $('#dateInput').val(new Date().getFullYear() + "-" + new Date().getMonth() + 1 + "-" + new Date().getDate())
+
+      var date = new Date();
+      var time1 = ("0" + date.getDate()).slice(-2) + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + date.getFullYear();
+
+      title = "Laporan Pendapatan DILO : " + time1;
+
+      var query = new Parse.Query(service);
+      console.log(query)
+      query.ascending("createdAt");
+      query.find({
+        success: function(object) {
+          for (var i = 0; i < object.length; i++) {
+            objectArray.push(object[i].toJSON())
+          }loadOrder();
+        },
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
+      });
+
+      function loadOrder(){
+        var query = new Parse.Query(order);
+        var today = new Date();
+        today.setHours(0, 0, 0);
+        //var thirdDaysAgo = new Date(today - 1000 * 60 * 60 * 24 * 1); // gets 30 days ago
+        query.greaterThanOrEqualTo('createdAt', today);
+        query.equalTo("status", "lunas");
+        query.descending("createdAt");
+        query.find({
+          success: function(object) {
+            console.log(object);
+            for (var i = 0; i < object.length; i++) {
+              document.getElementById('orderList').innerHTML += "<tr>" + "<td>" + object[i].id + "</td>" + "<td>" + object[i].get("name") + "<td>" + ("0" + object[i].createdAt.getDate()).slice(-2) + "/" + ("0" + (object[i].createdAt.getMonth() + 1)).slice(-2) + "/" + object[i].createdAt.getFullYear() + " @ " + object[i].createdAt.getHours() + ":" + object[i].createdAt.getMinutes() + "</td>" + "<td>" + object[i].get("day") + "</td>" + "<td>" + object[i].get("type") + "</td>" + "<td><p>" + getPrice(object[i].get("type")) + "</p></td>" + "</tr>";
+            }
+            loadCafe();
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+
+      }
+
+
+
+      function loadCafe() {
+        var query = new Parse.Query(orderCafe);
+        var today = new Date();
+        today.setHours(0, 0, 0);
+        query.greaterThanOrEqualTo('createdAt', today);
+        query.equalTo("status", "lunas");
+        query.descending("createdAt");
+        query.find({
+          success: function(object) {
+            console.log(object);
+            for (var i = 0; i < object.length; i++) {
+              document.getElementById('orderListCafe').innerHTML += "<tr>" + "<td>" + object[i].id + "</td>" + "<td>" + object[i].get("name") + "<td>" + ("0" + object[i].createdAt.getDate()).slice(-2) + "/" + ("0" + (object[i].createdAt.getMonth() + 1)).slice(-2) + "/" + object[i].createdAt.getFullYear() + " @ " + object[i].createdAt.getHours() + ":" + object[i].createdAt.getMinutes() + "</td>" + "<td>" + object[i].get("orderList") + "</td>" + "<td><p>" + object[i].get("total") + "</p></td></tr>";
+            }
+            sum(0);
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+      }
+
+      $("#searchReport").click(function() {
+        var query = new Parse.Query(order);
+        var enteredDate = document.getElementById('dateInput').valueAsDate;
+        var time1 = ("0" + enteredDate.getDate()).slice(-2) + "-" + ("0" + (enteredDate.getMonth() + 1)).slice(-2) + "-" + enteredDate.getFullYear();
+        title = "Laporan Pendapatan DILO : " + time1;
+        document.getElementById('orderList').innerHTML = "";
+        var d = new Date(enteredDate);
+        d.setHours(0, 0)
+        query.greaterThanOrEqualTo('createdAt', d);
+        d.setHours(23, 59)
+        console.log(d)
+        query.lessThanOrEqualTo('createdAt', d);
+        query.equalTo("status", "lunas");
+        query.descending("createdAt");
+        query.find({
+          success: function(object) {
+            console.log(object);
+            for (var i = 0; i < object.length; i++) {
+              document.getElementById('orderList').innerHTML += "<tr>" + "<td>" + object[i].id + "</td>" + "<td>" + object[i].get("name") +
+                "<td>" + ("0" + object[i].createdAt.getDate()).slice(-2) + "/" + ("0" + (object[i].createdAt.getMonth() + 1)).slice(-2) + "/" + object[i].createdAt.getFullYear() + " @ " + object[i].createdAt.getHours() + ":" +
+                object[i].createdAt.getMinutes() + "</td>" + "<td>" + object[i].get("day") + "</td>" + "<td>" + object[i].get("type") + "</td>" + "<td><p>" + getPrice(object[i].get("type")) + "</p></td>" + "</tr>";
+            }
+            loadCafeTime();
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+      });
+
+      function loadCafeTime() {
+        var query = new Parse.Query(orderCafe);
+        var enteredDate = document.getElementById('dateInput').valueAsDate;
+        document.getElementById('orderListCafe').innerHTML = "";
+        var d = new Date(enteredDate);
+        d.setHours(0, 0)
+        query.greaterThanOrEqualTo('createdAt', d);
+        d.setHours(23, 59)
+        query.lessThanOrEqualTo('createdAt', d);
+        query.equalTo("status", "lunas");
+        query.descending("createdAt");
+        query.find({
+          success: function(object) {
+            console.log(object);
+            for (var i = 0; i < object.length; i++) {
+              document.getElementById('orderListCafe').innerHTML += "<tr>" + "<td>" + object[i].id + "</td>" + "<td>" + object[i].get("name") +
+                "<td>" + ("0" + object[i].createdAt.getDate()).slice(-2) + "/" + ("0" + (object[i].createdAt.getMonth() + 1)).slice(-2) + "/" + object[i].createdAt.getFullYear() + " @ " + object[i].createdAt.getHours() + ":" + object[i]
+                .createdAt.getMinutes() + "</td>" + "<td>" + object[i].get("orderList") + "</td>" + "<td><p>" + object[i].get("total") + "</p></td></tr>";
+            }
+            sum(0);
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+      }
+
+
+      $("#searchReportTimes").click(function() {
+        var query = new Parse.Query(order);
+        var enteredDate = document.getElementById('dateInput2').valueAsDate;
+        var enteredDate2 = document.getElementById('dateInput3').valueAsDate;
+
+        var time1 = ("0" + enteredDate.getDate()).slice(-2) + "-" + ("0" + (enteredDate.getMonth() + 1)).slice(-2) + "-" + enteredDate.getFullYear();
+        var time2 = ("0" + enteredDate2.getDate()).slice(-2) + "-" + ("0" + (enteredDate2.getMonth() + 1)).slice(-2) + "-" + enteredDate2.getFullYear();
+        title = "Laporan Pendapatan DILO : " + time1 + " s/d " + time2;
+        document.getElementById('orderList').innerHTML = "";
+        var d = new Date(enteredDate);
+        var f = new Date(enteredDate2);
+        d.setHours(0, 0)
+        query.greaterThanOrEqualTo('createdAt', d);
+        f.setHours(23, 59)
+        query.lessThanOrEqualTo('createdAt', f);
+        query.equalTo("status", "lunas");
+        query.descending("createdAt");
+        query.find({
+          success: function(object) {
+            console.log(object);
+            for (var i = 0; i < object.length; i++) {
+              document.getElementById('orderList').innerHTML += "<tr>" + "<td>" + object[i].id + "</td>" + "<td>" + object[i].get("name") +
+                "<td>" + ("0" + object[i].createdAt.getDate()).slice(-2) + "/" + ("0" + (object[i].createdAt.getMonth() + 1)).slice(-2) + "/" + object[i].createdAt.getFullYear() + " @ " + object[i].createdAt.getHours() + ":" +
+                object[i].createdAt.getMinutes() + "</td>" + "<td>" + object[i].get("day") + "</td>" + "<td>" + object[i].get("type") + "</td>" + "<td><p>" + getPrice(object[i].get("type")) + "</p></td>" + "</tr>";
+            }
+            loadCafeTime2();
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+      });
+
+      function loadCafeTime2() {
+        var query = new Parse.Query(orderCafe);
+        var enteredDate = document.getElementById('dateInput2').valueAsDate;
+        var enteredDate2 = document.getElementById('dateInput3').valueAsDate;
+        document.getElementById('orderListCafe').innerHTML = "";
+        var d = new Date(enteredDate);
+        var f = new Date(enteredDate2);
+        d.setHours(0, 0)
+        query.greaterThanOrEqualTo('createdAt', d);
+        f.setHours(23, 59)
+        query.lessThanOrEqualTo('createdAt', f);
+        query.equalTo("status", "lunas");
+        query.descending("createdAt");
+        query.find({
+          success: function(object) {
+            console.log(object);
+            for (var i = 0; i < object.length; i++) {
+              document.getElementById('orderListCafe').innerHTML += "<tr>" + "<td>" + object[i].id + "</td>" + "<td>" + object[i].get("name") +
+                "<td>" + ("0" + object[i].createdAt.getDate()).slice(-2) + "/" + ("0" + (object[i].createdAt.getMonth() + 1)).slice(-2) + "/" + object[i].createdAt.getFullYear() + " @ " + object[i].createdAt.getHours() + ":" + object[i]
+                .createdAt.getMinutes() + "</td>" + "<td>" + object[i].get("orderList") + "</td>" + "<td><p>" + object[i].get("total") + "</p></td></tr>";
+            }
+            sum(0);
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+      }
+    });
+  </script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <nav class="navbar navbar-dark navbar-fixed-top bg-inverse">
+    <button type="button" class="navbar-toggler hidden-sm-up" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">DI.LO Depok</a>
+    <div id="navbar">
+      <nav class="nav navbar-nav pull-xs-left">
+        <!-- <a class="nav-item nav-link" href="#">Dashboard</a> -->
+      </nav>
+      <form class="pull-xs-right">
+      </form>
+    </div>
+  </nav>
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li><a href="menuList.html">Cafe Menu</a></li>
+          <li><a href="orderListCafe.html">Digi Cafe</a></li>
+          <li><a href="eventList.html">Events</a></li>
+          <li><a href="overview.html">Overview <span class="sr-only">(current)</span></a></li>
+          <li><a href="orderList.html">Order List</a></li>
+          <li class="active"><a href="report.html">Reports</a></li>
+          <li><a href="rollback.html">Rollback</a></li>
+          <li><a href="serviceList.html">Services</a></li>
+        </ul>
+      </div>
+
+
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="form-group">
+          <label>Tanggal Laporan : </label>
+          <input id="dateInput" type="date" style="margin-bottom: 20px;" />
+          <a class='btn btn-default btn-sm' href='#' id="searchReport"><i class='fa fa-clock-o fa-2x'></i></a>
+        </div>
+        <div class="form-group">
+          <label>Tanggal Laporan Kurun Waktu : </label>
+          <input id="dateInput2" type="date" style="margin-bottom: 20px;" />
+          <input id="dateInput3" type="date" style="margin-bottom: 20px;" />
+          <a class='btn btn-default btn-sm' href='#' id="searchReportTimes"><i class='fa fa-clock-o fa-2x'></i></a>
+        </div>
+
+
+        <div id="testTable" class="table-responsive">
+          <p style="font-family:'courier'">Laporan Pendapatan DILO</p>
+          <table id="diloTable" class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Tgl Pesan</th>
+                <th>Hari</th>
+                <th>Tipe</th>
+                <th>Harga</th>
+              </tr>
+            </thead>
+            <tbody id="orderList">
+            </tbody>
+          </table>
+          <br>
+          <p style="font-family:'courier'">Laporan Pendapatan Cafe</p>
+          <table id="cafeTable" class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Tgl Pesan</th>
+                <th>Daftar Pesan</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="orderListCafe">
+            </tbody>
+          </table>
+          <p style="font-family:'courier'">Ringkasan</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>DILO</th>
+                <th>Cafe</th>
+                <th>Total Pendapatan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="dilo"></td>
+                <td id="cafe"></td>
+                <td id="total"></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-family:'courier'">Digital Innovation Lounge - Depok</p>
+
+        </div>
+        <button type="button" onclick="printPDF()" class="btn btn-primary">Cetak</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../docs/js/bootstrap.min.js"></script>
+</body>
+
+</html>

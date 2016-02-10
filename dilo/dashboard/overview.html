@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title></title>
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="dashboard.css" rel="stylesheet">
+  <link href="bootstrap-switch.css" rel="stylesheet">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap-switch.js"></script>
+  <script src="http://cdn.pubnub.com/pubnub-3.7.18.min.js"></script>
+  <script type="text/javascript" src="lodash.min.js"></script>
+  <script charset="utf-8" src="jstorage.js"></script>
+  <script charset="utf-8" src="parse-1.6.12.js"></script>
+  <script type='text/javascript'>
+    //<![CDATA[
+    $(window).load(function() {
+      $('#set_day').text("Pilih hari : " + $.jStorage.get("get_day2"));
+      $("#day").change(function() {
+        $.jStorage.set("get_day2", $("#day option:selected").val());
+        location.reload();
+      });
+      $("[name='my-checkbox']").bootstrapSwitch();
+      $('input[name="my-checkbox"]').bootstrapSwitch('onText', 'Pesan');
+      $('input[name="my-checkbox"]').bootstrapSwitch('offText', 'OK');
+      $('input[name="my-checkbox"]').bootstrapSwitch('size', 'small');
+      $('input[name="my-checkbox"]').bootstrapSwitch('labelWidth', 'auto');
+      $('input[name="my-checkbox"]').bootstrapSwitch('handleWidth', '40');
+      $('input[name="my-checkbox"]').bootstrapSwitch('onColor', 'danger');
+
+
+      pubnub = PUBNUB({
+        publish_key: 'pub-c-40d8dae8-263f-4ccd-8e38-e154a9899ad4',
+        subscribe_key: 'sub-c-9756bdb0-a4c8-11e4-bf84-0619f8945a4f',
+        uuid: 'admin'
+      })
+
+      pubnub.history({
+        channel: 'Channel-f6pc12704',
+        callback: function(m) {
+          var m_array = [];
+          for (i = 0; i < m[0].length; i++) {
+            m_array.push(m[0][i]);
+          }
+
+          var m_array_2 = (_.uniq(m_array, 'id'));
+          for (i = 0; i < m_array_2.length; i++) {
+            var m_array_3 = _.filter(m_array, function(n) {
+              return n.id == m_array_2[i].id;
+            });
+
+            if (_.last(m_array_3).command == "Order!" && _.last(m_array_3).day == $.jStorage.get("get_day2")) {
+              $('#' + _.last(m_array_3).id).bootstrapSwitch('state', false);
+            }
+
+            if (_.last(m_array_3).command == "Open!") {}
+          }
+        },
+        count: 100, // 100 is the default
+        reverse: false // false is the default
+      });
+
+
+      console.log("Subscribing..");
+      pubnub.subscribe({
+        channel: "Channel-f6pc12704",
+        message: function(message) {
+          console.log(message);
+          var d = new Date();
+          if (message.command == "Order!" && message.day == $.jStorage.get("get_day2")) {
+            $('#' + message.id).bootstrapSwitch('state', false);
+          }
+          if (message.command == "Open!") {}
+        }
+      })
+
+
+      $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
+        var d = new Date();
+        if (state == true) {
+          pubnub = PUBNUB({
+            publish_key: 'pub-c-40d8dae8-263f-4ccd-8e38-e154a9899ad4',
+            subscribe_key: 'sub-c-9756bdb0-a4c8-11e4-bf84-0619f8945a4f',
+            uuid: 'admin'
+          })
+
+          pubnub.publish({
+            channel: "Channel-f6pc12704",
+            message: {
+              "command": "Open!",
+              "day": $.jStorage.get("get_day2"),
+              "id": event.target.id
+            },
+          })
+
+        }
+      });
+    }); //]]>
+  </script>
+
+
+
+
+</head>
+<body>
+  <nav class="navbar navbar-dark navbar-fixed-top bg-inverse">
+    <button type="button" class="navbar-toggler hidden-sm-up" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">DI.LO Depok</a>
+    <div id="navbar">
+      <nav class="nav navbar-nav pull-xs-left">
+        <!-- <a class="nav-item nav-link" href="#">Dashboard</a> -->
+      </nav>
+      <form class="pull-xs-right">
+      </form>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li><a href="menuList.html">Cafe Menu</a></li>
+          <li><a href="orderListCafe.html">Digi Cafe</a></li>
+          <li><a href="eventList.html">Events</a></li>
+          <li class="active"><a href="overview.html">Overview <span class="sr-only">(current)</span></a></li>
+          <li><a href="orderList.html">Order List</a></li>
+          <li><a href="report.html">Reports</a></li>
+          <li><a href="rollback.html">Rollback</a></li>
+          <li><a href="serviceList.html">Services</a></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <select id="day" name="state" class="form-control selectpicker">
+          <option id="set_day">Pilih hari :</option>
+          <option>Senin</option>
+          <option>Selasa</option>
+          <option>Rabu</option>
+          <option>Kamis</option>
+          <option>Jumat</option>
+          <option>Sabtu</option>
+          <option>Minggu</option>
+        </select>
+      </div>
+
+
+
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <p style="font-weight:bold">Meja Kerja 1 Kursi</p>
+
+        <div id="no-more-tables">
+          <table class="col-sm-12 table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+              <tr>
+                <th> Jam </th>
+                <th> Kursi </th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-title="Jam">09:00 - 11:00</td>
+                <td data-title="Kursi">
+                  <input id="a1_1" type="checkbox" name="my-checkbox" checked>
+                  <input id="a1_2" type="checkbox" name="my-checkbox" checked>
+                  <input id="a1_3" type="checkbox" name="my-checkbox" checked>
+                  <input id="a1_4" type="checkbox" name="my-checkbox" checked>
+                  <input id="a1_5" type="checkbox" name="my-checkbox" checked>
+                  <input id="a1_6" type="checkbox" name="my-checkbox" checked>
+                  <input id="a1_7" type="checkbox" name="my-checkbox" checked>
+                  <input id="a1_8" type="checkbox" name="my-checkbox" checked>
+                  <input id="a1_9" type="checkbox" name="my-checkbox" checked>
+                  <input id="a1_10" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+              <tr>
+                <td data-title="Jam">11:00 - 13:00</td>
+                <td data-title="Kursi">
+                  <input id="a2_1" type="checkbox" name="my-checkbox" checked>
+                  <input id="a2_2" type="checkbox" name="my-checkbox" checked>
+                  <input id="a2_3" type="checkbox" name="my-checkbox" checked>
+                  <input id="a2_4" type="checkbox" name="my-checkbox" checked>
+                  <input id="a2_5" type="checkbox" name="my-checkbox" checked>
+                  <input id="a2_6" type="checkbox" name="my-checkbox" checked>
+                  <input id="a2_7" type="checkbox" name="my-checkbox" checked>
+                  <input id="a2_8" type="checkbox" name="my-checkbox" checked>
+                  <input id="a2_9" type="checkbox" name="my-checkbox" checked>
+                  <input id="a2_10" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+              <tr>
+                <td data-title="Jam">13:00 - 15:00</td>
+                <td data-title="Kursi">
+                  <input id="a3_1" type="checkbox" name="my-checkbox" checked>
+                  <input id="a3_2" type="checkbox" name="my-checkbox" checked>
+                  <input id="a3_3" type="checkbox" name="my-checkbox" checked>
+                  <input id="a3_4" type="checkbox" name="my-checkbox" checked>
+                  <input id="a3_5" type="checkbox" name="my-checkbox" checked>
+                  <input id="a3_6" type="checkbox" name="my-checkbox" checked>
+                  <input id="a3_7" type="checkbox" name="my-checkbox" checked>
+                  <input id="a3_8" type="checkbox" name="my-checkbox" checked>
+                  <input id="a3_9" type="checkbox" name="my-checkbox" checked>
+                  <input id="a3_10" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+              <tr>
+                <td data-title="Jam">15:00 - 17:00</td>
+                <td data-title="Kursi">
+                  <input id="a4_1" type="checkbox" name="my-checkbox" checked>
+                  <input id="a4_2" type="checkbox" name="my-checkbox" checked>
+                  <input id="a4_3" type="checkbox" name="my-checkbox" checked>
+                  <input id="a4_4" type="checkbox" name="my-checkbox" checked>
+                  <input id="a4_5" type="checkbox" name="my-checkbox" checked>
+                  <input id="a4_6" type="checkbox" name="my-checkbox" checked>
+                  <input id="a4_7" type="checkbox" name="my-checkbox" checked>
+                  <input id="a4_8" type="checkbox" name="my-checkbox" checked>
+                  <input id="a4_9" type="checkbox" name="my-checkbox" checked>
+                  <input id="a4_10" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+              <tr>
+                <td data-title="Jam">17:00 - 19:00</td>
+                <td data-title="Kursi">
+                  <input id="a5_1" type="checkbox" name="my-checkbox" checked>
+                  <input id="a5_2" type="checkbox" name="my-checkbox" checked>
+                  <input id="a5_3" type="checkbox" name="my-checkbox" checked>
+                  <input id="a5_4" type="checkbox" name="my-checkbox" checked>
+                  <input id="a5_5" type="checkbox" name="my-checkbox" checked>
+                  <input id="a5_6" type="checkbox" name="my-checkbox" checked>
+                  <input id="a5_7" type="checkbox" name="my-checkbox" checked>
+                  <input id="a5_8" type="checkbox" name="my-checkbox" checked>
+                  <input id="a5_9" type="checkbox" name="my-checkbox" checked>
+                  <input id="a5_10" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+              <tr>
+                <td data-title="Jam">19:00 - 21:00</td>
+                <td data-title="Kursi">
+                  <input id="a6_1" type="checkbox" name="my-checkbox" checked>
+                  <input id="a6_2" type="checkbox" name="my-checkbox" checked>
+                  <input id="a6_3" type="checkbox" name="my-checkbox" checked>
+                  <input id="a6_4" type="checkbox" name="my-checkbox" checked>
+                  <input id="a6_5" type="checkbox" name="my-checkbox" checked>
+                  <input id="a6_6" type="checkbox" name="my-checkbox" checked>
+                  <input id="a6_7" type="checkbox" name="my-checkbox" checked>
+                  <input id="a6_8" type="checkbox" name="my-checkbox" checked>
+                  <input id="a6_9" type="checkbox" name="my-checkbox" checked>
+                  <input id="a6_10" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+              <tr>
+                <td data-title="Jam">21:00 - 23:00</td>
+                <td data-title="Kursi">
+                  <input id="a7_1" type="checkbox" name="my-checkbox" checked>
+                  <input id="a7_2" type="checkbox" name="my-checkbox" checked>
+                  <input id="a7_3" type="checkbox" name="my-checkbox" checked>
+                  <input id="a7_4" type="checkbox" name="my-checkbox" checked>
+                  <input id="a7_5" type="checkbox" name="my-checkbox" checked>
+                  <input id="a7_6" type="checkbox" name="my-checkbox" checked>
+                  <input id="a7_7" type="checkbox" name="my-checkbox" checked>
+                  <input id="a7_8" type="checkbox" name="my-checkbox" checked>
+                  <input id="a7_9" type="checkbox" name="my-checkbox" checked>
+                  <input id="a7_10" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <p style="font-weight:bold">Meja Kerja 3 Kursi</p>
+        <div id="no-more-tables">
+          <table class="col-sm-12 table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+              <tr>
+                <th> Jam </th>
+                <th> Meja </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-title="Jam">09:00 - 12:00</td>
+                <td data-title="Meja">
+                  <input id="a1_b" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+              <tr>
+                <td data-title="Jam">12:00 - 15:00</td>
+                <td data-title="Meja">
+                  <input id="a2_b" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+              <tr>
+                <td data-title="Jam">15:00 - 18:00</td>
+                <td data-title="Meja">
+                  <input id="a3_b" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+              <tr>
+                <td data-title="Jam">19:00 - 22:00</td>
+                <td data-title="Meja">
+                  <input id="a4_b" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <p style="font-weight:bold">Ruang Meeting</p>
+        <div id="no-more-tables">
+          <table class="col-sm-12 table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+              <tr>
+                <th> Jam </th>
+                <th> Meja </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-title="Jam">09:00 - 12:00</td>
+                <td data-title="Meja">
+                  <input id="a1_c" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+              <tr>
+                <td data-title="Jam">12:00 - 15:00</td>
+                <td data-title="Meja">
+                  <input id="a2_c" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+              <tr>
+                <td data-title="Jam">15:00 - 18:00</td>
+                <td data-title="Meja">
+                  <input id="a3_c" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+              <tr>
+                <td data-title="Jam">19:00 - 22:00</td>
+                <td data-title="Meja">
+                  <input id="a4_c" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <p style="font-weight:bold">Ruang Serbaguna</p>
+        <div id="no-more-tables">
+          <table class="col-sm-12 table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+              <tr>
+                <th> Jam </th>
+                <th> Ruangan </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-title="Jam">09:00 - 15:00 / 12:00 - 20:00</td>
+                <td data-title="Meja">
+                  <input id="a1_d" type="checkbox" name="my-checkbox" checked>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <!-- <script src="../docs/js/bootstrap.min.js"></script> -->
+</body>
+
+</html>

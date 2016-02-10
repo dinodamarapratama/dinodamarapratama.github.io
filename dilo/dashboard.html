@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <link href="docs/css/bootstrap.min.css" rel="stylesheet">
+  <link href="docs/css/bootstrap-switch.css" rel="stylesheet">
+  <script src="docs/js/jquery.min.js"></script>
+  <script src="docs/js/bootstrap-switch.js"></script>
+  <script type="text/javascript" src="docs/js/lodash.min.js"></script>
+  <script src="docs/js/bootstrap.min.js"></script>
+  <script charset="utf-8" src="docs/js/jstorage.js"></script>
+  <script charset="utf-8" src="docs/js/parse-1.6.12.js"></script>
+
+  <script>
+
+    function doClose() {
+			$.jStorage.flush();
+      setTimeout(function() {
+        window.location.href = "login.html";
+      }, 2000);
+		}
+
+
+  </script>
+  <style>
+    body {
+      /*background: #eee !important;*/
+      background: url(docs/img/bg.jpg)repeat 0px 0px;
+      background-position: center;
+    }
+
+    .panel-default>.panel-heading {
+      color: #fff;
+      background-color: #fd0000;
+      border-color: #ddd;
+    }
+
+    .wrapper {
+      max-width: 380px;
+      padding: 15px 35px 45px;
+      margin: 0 auto;
+    }
+
+    .navbar-default {
+      background-color: #fd0000;
+      border-color: #fd0000;
+    }
+
+    .navbar-default .navbar-toggle {
+      border-color: #fd0000;
+    }
+
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+      background-color: #fd0000;
+    }
+
+    .navbar-default .navbar-nav>.active>a,
+    .navbar-default .navbar-nav>.active>a:hover,
+    .navbar-default .navbar-nav>.active>a:focus {
+      color: #555;
+      background-color: #fff;
+    }
+
+    .navbar-default .navbar-nav>li>a {
+      color: #fff;
+    }
+
+    .navbar-default .navbar-nav>li>a:hover {
+      color: #fff;
+    }
+
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+      border-color: #fd0000;
+    }
+
+    @media (min-width:720px) {
+      .col-xs-6 a img {}
+      .col-xs-6 {}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Static navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" width="25px" src="docs/img/logo.png">
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="user.html">Pengaturan Akun<span class="sr-only">(current)</span></a></li>
+          <li><a href="#" onclick="doClose()">Keluar</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="wrapper">
+        <div class="col-md-12">
+          <div class="col-xs-6">
+            <a href="events.html">
+              <img src="docs/img/logo2.png" width="100%" />
+            </a>
+            <p style="text-align:center">Acara</p>
+            <br>
+          </div>
+
+          <div class="col-xs-6">
+            <a href="cafe.html">
+              <img src="docs/img/logo2.png" width="100%" />
+            </a>
+            <p style="text-align:center">Digi Cafe</p>
+            <br>
+          </div>
+        </div>
+
+
+        <div class="col-md-12">
+          <div class="col-xs-6">
+            <a href="menu1.html">
+              <img src="docs/img/logo2.png" width="100%" />
+            </a>
+            <p style="text-align:center">Pesan Tempat</p>
+          </div>
+
+          <div class="col-xs-6">
+            <a href="orderList.html">
+              <img src="docs/img/logo2.png" width="100%" />
+            </a>
+            <p style="text-align:center">Daftar Pesanan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
