@@ -5,27 +5,27 @@ var data = [{
   keterangan: " Pada awalnya dinyanyikan secara iseng saat masyarakat kalimantan selatan membuat sebuah kue/makanan yang terbuat dari pisang. Makanan ini bernama rimpi. Cara membuat makanan ini adalah dengan cara pisang di diampar (disusun) kemudian dibiarkan hingga hampir matang mendekati busuk. setelah itu pisang dijemur diampar(disusun) di bawah sinar matahari sampai kira kira pisang mengeras dan mengeluarkan bau manis yang sangat khas. Agak mirip dengan sale pisang temen temen kalau dilihat sepintas. "
 }, {
   nama: "Kicir – Kicir ",
-  video_url: "https://www./youtube.com/watch?v=qcwwp95EecY",
+  video_url: "https://www.youtube.com/embed/qcwwp95EecY",
   lirik: "kicir kicir ini lagunya<br>\n  lagu lama ya tuan dari Jakarta <br/>\n  saya menyanyi ya tuan memang sengaja <br/>\n  untuk menghibur menghibur hati nan duka <br/>\n  <br/>\n  burung dara burung merpati <br/>\n  terbang cepat ya tuan tiada tara <br/>\n  bilalah kita ya tuan suka menyanyi <br/>\n  badanlah sehat ya tuan hati gembira <br/>\n  <br/>\n  buah mangga enak rasanya <br/>\n  si manalagi ya tuan paling ternama <br/>\n  siapa saja ya tuan rajin bekerja <br/>\n  pasti menjadi menjadi warga berguna ",
   keterangan: " Lagu kicir-kicir ini merupakan lagu yang termasuk dalam kebudayaan nasional, karena kebudayaan dapat merupakan tarian, lagu-lagu daerah dan alat musik yang dilestarikan.bangsa Indonesia merupakan bangsa yang paling beragam kebudayaannya dari mulai bahasa yang digunakan, pakaian adat sampai lagu-lagu dari tiap-tiap daerah pasti memilikinya."
 }, {
   nama: "Bungong Jeumpa",
-  video_url: "https://www.youtube.com/watch?v=ZfZxIR9vRmk",
+  video_url: "https://www.youtube.com//embed/ZfZxIR9vRmk",
   lirik: "Bungong jeumpa bungong jeumpa meugah di Aceh <br/>\n    Bungong teuleubeh,\n  teuleubeh indah lagoina <br/>\n  Bungong jeumpa bungong jeumpa meugah di Aceh <br/>\n  Bungong teuleubeh,\n  teuleubeh indah lagoina <br/>\n  <br/>\n  Puteh kuneng meujampu mirah <br/>\n  Bungong ulah si ulah indah lagoina <br/>\n  Puteh kuneng meujampu mirah <br/>\n  Bungong sulah i ulah indah lagoina <br/>\n  <br/>\n  Lam sinar buleun lam sinar buleun angeen peu ayon <br/>\n  Luroh meususon,\n  mesuson nyang mala - mala <br/>\n  Lam sinar buleun lam sinar buleun angeen peu ayon <br/>\n  Luroh meususon,\n  mesuson nyang mala - mala <br/>\n  <br/>\n  Keubit that meubee meunoe tatem com <br/>\n  Leupah that harom si bungong jeumpa <br/>\n  Keubit that meubee meunoe tatem com <br/>\n  Leupah that harom si bungong jeumpa ",
   keterangan: "lagu Bungong Jeumpa berkaitan dengan Kerajaan Jeumpa, Aceh,\n   berdasarkan Ikhtisar Radja Jeumpa yang ditulis Ibrahim Abduh yang disadurnya dari hikayat Radja Jeumpa. Kerajaan Jeumpa adalah sebuah kerajaan yang berkembang pada sekitar abad ke-7 Masehi. Berada di sekitar daerah perbukitan, mulai dari sisi sungai Peudada di sebelah barat sampai Pante Krueng Peusangan di sebelah timur.  Istana Raja Jeumpa sendiri terletak di desa Blang Seupeueng yang dipagari di sebelah utara, sekarang disebut Cot Cibrek Pintoe Ubeuet"
 }, {
   nama: "Tokecang",
-  video_url: " https://www.youtube.com/watch?v=Ws5PAc-5-P8",
+  video_url: " https://www.youtube.com/embed/b9FSQypxpvs",
   lirik: "Tokecang tokecang bala gendir tosblong <br/>\n    Angeun kacang sapependil kosong <br/>\n    <br/>\n    Aya listrik di masigit meuni caang katingalna <br/>\n    Aya istri jangkung alit karangan dina pipina <br/>\n    <br/>\n    Tokecang tokecang bala gendir tosblong <br/>\n    Angeun kacang angeun kacang sapependil kosong ",
   keterangan: "  Lagu Sunda Tokecang merupakan lagu tradisional anak – anak yang sudah menasionalkan  mulai dari anak – anak hingga orang dewasa mengenal lagu ini karena diajarkan pula di berbagai sekolah. Lagu daerah Sunda ini disukai karena berirama riang bertempo cepat, dengan lirik lagu yang jenaka. Arti dari Tokecang sendiri menurut sejumlah orang adalah singkatan dari Tokek Makan Kacang"
 }, {
   nama: "Gundul – Gundul Pacul",
-  video_url: "https://www.youtube.com/watch?v=-RaM1pC9rYc ",
+  video_url: "https://www.youtube.com/embed/-RaM1pC9rYc",
   lirik: "  Gundul gundul pacul cul gelelengan <br/>\n    Nyunggi nyunggi wakul kul gembelengan <br/>\n    <br/>\n    Wakul ngglimpang segane dadi sak rattan <br/>\n    Wakul ngglimpang segane dadi sak rattan ",
   keterangan: "Tembang Jawa ini konon diciptakan tahun 1400-an oleh Sunan Kalijaga dan teman-temannya yang masih remaja dan mempunyai arti filosofis yg dalam dan sangat mulia."
 }, {
   nama: "Cublak – Cublak Suweng",
-  video_url: "https://www.youtube.com/watch?v=WfsNDRXWP7o",
+  video_url: "https://www.youtube.com/embed/WfsNDRXWP7o",
   lirik: "  Cublak cublak suweng <br/>\n    Suwenge ting gelèntèr <br/>\n    Mambu ketundhung gudèl <br/>\n    Pak empong lera - léré <br/>\n    Sapa ngguyu ndelikkaké <br/>\n    Sir sir pong dhelé kopong <br/>\n    Sir sir pong dhelé kopong. ",
   keterangan: " cublak-cublak suweng (hiasan untuk telinga) merupakan salah satu permaian anak-anak pada masanya. seseorang harus menebak suweng yang disembunyikan teman-temannya, berada di tangan siapa. anak yang tertawa biasanya dialah yang menyembunyikan suweng tersebut. lagu ini juga memiliki makna yang dalam, bahwa suweng merupakan gambaran informasi  yang penting yang harus dicari. informasi ini tidak akan berguna dan mungkin akan dirusak koleh orang yang tidak mengerti. bagi orang yang sudah berpengalaman, ia akan mengetahui mana yang baik dan buruk, mana yang berupa kebohongan  siapa yang mengetahui ada kebohongan akan menertawakan kebohongan tersebut."
 }, {
