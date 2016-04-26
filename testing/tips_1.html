@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300|Open+Sans:300italic,400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+<!--//webfont-->
+<!--Animation-->
+<script src="js/wow.min.js"></script>
+<link href="css/animate.css" rel='stylesheet' type='text/css' />
+<script>
+	new WOW().init();
+</script>
+<style>
+.myButton {
+	-moz-box-shadow: 0px 0px 0px 2px #9fb4f2;
+	-webkit-box-shadow: 0px 0px 0px 2px #9fb4f2;
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7892c2), color-stop(1, #476e9e));
+	background:-moz-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:-webkit-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:-o-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:-ms-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7892c2', endColorstr='#476e9e',GradientType=0);
+	background-color:#7892c2;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:12px;
+	padding:12px 37px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+	width: 100%;
+	
+	
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #476e9e), color-stop(1, #7892c2));
+	background:-moz-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-webkit-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-o-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-ms-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#476e9e', endColorstr='#7892c2',GradientType=0);
+	background-color:#476e9e;
+	text-decoration:none;
+}
+.myButton:active {
+    
+	position:relative;
+	top:1px;
+	
+}
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+	 text-align:center;
+	 padding:12px 37px;
+}
+
+</style>
+ <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		
+		 <script type="text/javascript" charset="utf-8">
+
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+      
+        function onDeviceReady() {
+       
+        }
+        
+        
+        
+ 
+function doClose() {
+		navigator.notification.confirm(
+			'Keluar dari Aplikasi?',
+			exitApp,
+			'Kalkulator Gizi',
+			'Ok,Cancel'
+		);
+	}
+	
+	function exitApp(buttonIndex) {
+			if (buttonIndex == 1) {
+			navigator.app.exitApp();
+			}
+		else {
+			window.close();
+		}
+	}
+	
+
+        </script>
+</head>
+<body>
+	<div class="header box css3-shadow" id="head">
+ 	<div class="container">
+	  <div class="header-top">
+	        <div class="logo wow bounceInLeft" data-wow-delay="0.4s">
+				<a href="index.html"><img width="50" src="images/logo.png" alt=""/></a><br>
+			 </div>
+			
+			<div class="clearfix"> </div>
+			
+		  </div><!-- end header_main4 -->
+	</div>
+</div>
+<!--start-slider-->
+	
+<!--//end-slider-->
+	
+	<div class="container">
+    <br>
+	
+	<p><strong>Tips Cara Membaca Label Makanan Kemasan</strong></p>
+
+<p><br></p>
+<img src="images/tbl_nutrisi.jpg" width="100%" />
+<br>
+<img src="images/ket_tbl.jpg" width="100%" /> <br><br>
+<p><strong>1. Membatasi Asupan Kalori, dan Lemak Harian</strong></p>
+
+<p><br>
+</p>
+
+<p>Perhatikan Takaran saji perkemasan dan energy total.   Dalam label nutrisi tercantum diatas jumlah sajian per kemasan 2 dan jumlah  energi total persajian sebesar 350 kkal, itu berarti jika kita mengkonsumsi  semua makanan diatas dalam satu kali saji maka total energy ( kalori ) yang  dihasilkan adalah 2 x350 kkal = 700 kkal, Sedangkan Energi berasal dari lemak  lemak 2 x 110  kkal.</p>
+
+<p><br>
+</p>
+
+<p><span style="color: #2969B0;">Tips: Mengecek jumlah takaran sajian perkemasan ini juga  bisa mencegah Anda terkecoh dengan persepsi jumlah kalori total tercantum yang  Anda pikir rendah. Padahal, total kalori itu ialah untuk satu takaran saji.</span></p>
+
+<p><br>
+</p>
+
+<p><strong>2. Ingin Sehat dan Aktif</strong></p>
+
+<p><br>
+</p>
+
+<p>Cukupi kebutuhan mikro nutrisi seperti vitamin A, B  kompleks, C, D, K, kalsium, zat besi, zink, magnesium,dan serat makanan. Sebagian  besar nutrisi tersebut tidak bisa dihasilkan tubuh sendiri, tetapi harus  dicukupi dengan konsumsi dari luar. Nutrisi mikro ini sangat menunjang proses  kerja organ di dalam tubuh. </p>
+
+<p><br>
+</p>
+
+<p><span style="color: #2C82C9;">Tips : Disarankan persentase nutrisi mikro ini berada di  atas angka 20% AKG.</span></p>
+
+<p><br>
+</p>
+
+<p><strong>3. Membatasi Asupan Garam dan Gula</strong></p>
+
+<p><br>
+</p>
+
+<p>Garam</p>
+
+<p>Sodium atau natrium adalah nama lain dari garam. Anda yang  sedang diet batasi asupan garam ini karna cendung mengikat air. Selain itu  kosumsi garam berlebih menyebabkan tekanan darah tinggi.</p>
+
+<p><br>
+</p>
+
+<p><span style="color: #2C82C9;">Tips :  Batasi konsumsi garam yaitu 1 sendok teh atau  setara dengan 2300 mg perhari  Untuk penderita hipertensi, disarankan  sekitar ½ sendok teh atau 1500 mg per hari.</span></p>
+
+<p><br>
+</p>
+
+<p>Gula</p>
+
+<p>Ingin kontrol jumlah asupan gula harian terutama bagi  penderita diabetes. Menurut DepKes RI, konsumsi gula yang ditambahkan dalam  sehari sebaiknya tidak melebihi atau setara 3-4 sendok makan  atau 25  gram. Gula pada makanan kemasan biasanya  ditulis dengan sukrosa.</p>
+
+<p><br>
+</p>
+
+<p><span style="color: #2C82C9;">Tips : Pilihlah pada produk yang berlabel No added sugar  (tanpa tambahan gula): makanan tersebut tidak ditambahkan gula tetapi masih  mengandung gula secara alami seperti: jus buah.</span></p>
+
+<p><br>
+</p>
+
+<p><br>
+</p>
+
+<p><strong>4. Angka Kecukupan Gizi (AKG).</strong></p>
+
+<p>Porsi kebutuhan zat setiap individu setiap hari terdiri dari  40% untuk karbohidrat, 30% untuk protein dan 30% untuk lemak. Dengan begitu,  saat Anda membeli makanan atau minuman kemasan, persentase zat-zat tersebut  semestinya masih di bawah batas komposisi agar bisa mengonsumsi jenis makanan  lain yang diperlukan tubuh.</p>
+
+<p><br>
+</p>
+
+<p><span style="color: #2C82C9;">Tips : Pilih makanan atau minuman yang tinggi vitamin dan  mineral, yaitu yang kadar %AKGnya lebih dari 20%. Nilai %AKG atau Angka  Kecukupan Gizi menunjukkan seberapa banyak produk makanan memenuhi kebutuhan  nutrisi harian.</span></p>
+
+<p><br>
+</p>
+
+<p>Contoh: dari label makanan diatas Vitamin B12 menyumbang 40%  Angka kecukupan gizi  ( AKG) berarti makanan tersebut tinggi Vitamin B12,  dan mencukupi 40% kebutuhan kalsium harian kita untuk satu kali penyajian.</p>
+
+<p><br>
+</p>
+
+<p>Mengerti dan lebih rajin membaca label nilai gizi pada  kemasan kemasan sebelum membeli ataupun mengkosumsi membuat Anda cenderung lebih  akan lebih sehat. Semoga bermanfaat.</p>
+	</div>
+
+
+
+			
+			
+
+			
+</body>
+</html>

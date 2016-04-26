@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300|Open+Sans:300italic,400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+<!--//webfont-->
+<!--Animation-->
+<script src="js/wow.min.js"></script>
+<link href="css/animate.css" rel='stylesheet' type='text/css' />
+<script>
+	new WOW().init();
+</script>
+<style>
+.myButton {
+	-moz-box-shadow: 0px 0px 0px 2px #9fb4f2;
+	-webkit-box-shadow: 0px 0px 0px 2px #9fb4f2;
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7892c2), color-stop(1, #476e9e));
+	background:-moz-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:-webkit-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:-o-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:-ms-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7892c2', endColorstr='#476e9e',GradientType=0);
+	background-color:#7892c2;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:12px;
+	padding:12px 37px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+	width: 100%;
+	
+	
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #476e9e), color-stop(1, #7892c2));
+	background:-moz-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-webkit-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-o-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-ms-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#476e9e', endColorstr='#7892c2',GradientType=0);
+	background-color:#476e9e;
+	text-decoration:none;
+}
+.myButton:active {
+    
+	position:relative;
+	top:1px;
+	
+}
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+	 text-align:center;
+	 padding:12px 37px;
+}
+
+</style>
+ <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8">
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() { }
+
+function doClose() {
+		navigator.notification.confirm(
+			'Keluar dari Aplikasi?',
+			exitApp,
+			'Kalkulator Gizi',
+			'Ok,Cancel'
+		);
+	}
+	
+	function exitApp(buttonIndex) {
+			if (buttonIndex == 1) {
+			navigator.app.exitApp();
+			}
+		else {
+			window.close();
+		}
+	}
+ </script>
+</head>
+<body>
+	<div class="header box css3-shadow" id="head">
+ 	<div class="container">
+	  <div class="header-top">
+	        <div class="logo wow bounceInLeft" data-wow-delay="0.4s">
+				<a href="index.html"><img width="50" src="images/logo.png" alt=""/></a><br>
+			 </div>
+			
+			<div class="clearfix"> </div>
+			
+		  </div><!-- end header_main4 -->
+	</div>
+</div>
+<!--start-slider-->
+	<div class="slider-bg">
+		<div class="container">
+			<div class="grid-1">
+				<div class="col-md-5 left-grid-1 wow bounceInLeft" data-wow-delay="0.4s">
+					<h1>Kalkulator</h1>	
+					<h2>Kalori</h2>
+				</div>
+				<div class="col-md-7 right-grid-1 wow bounceInRight" data-wow-delay="0.7s">
+					<div class="slider">
+						<div class="callbacks_container">
+								<ul class="rslides" id="slider">
+									<li>
+									<img src="images/slide.jpg" class="img-responsive" alt="" />
+									</li>
+								 </ul>
+							</div>
+						</div>
+					</div>	
+				 </script><script src="js/responsiveslides.min.js"></script>
+						   <script>
+					    $(function () {
+					      $("#slider").responsiveSlides({
+					      	auto: true,
+					      	nav: true,
+					      	speed: 500,
+					        namespace: "callbacks",
+					        pager: true,
+					      });
+					    });
+					  </script>
+
+                    </div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+<!--//end-slider-->
+	
+	<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 center">
+           
+            <a href="calculator.html" class="myButton">Kalkulator Kalori</a>
+                         
+        </div>
+		<div  class="col-xs-12 col-sm-6 col-md-6 center">
+           
+             <a href="notes.html" class="myButton">Catatan</a>
+                   
+        </div>
+		<div  class="col-xs-12 col-sm-6 col-md-6 center">
+           
+             <a href="tips_menu.html" class="myButton">Tips</a>
+                         
+        </div>
+		<div  class="col-xs-12 col-sm-6 col-md-6 center">
+           
+             <a href="about.html" class="myButton">Tentang</a>
+                         
+        </div>
+		<div  class="col-xs-12 col-sm-6 col-md-6 center">
+           
+         <a href="#" onclick="doClose()" class="myButton">Keluar</a>
+                         
+        </div>
+      
+    </div>
+</div>
+
+
+
+			
+			
+
+			
+</body>
+</html>
