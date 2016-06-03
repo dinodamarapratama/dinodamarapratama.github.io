@@ -1,7 +1,7 @@
 var data = [
   {
     "ID": "0",
-    "Nama_kuliner": "Jembatan Hidup",
+    "Judul": "Jembatan Hidup",
     "latitude": "-6.3898967",
     "longitude": "106.8180363",
     "Deskripsi" : "Doa adalah jembatan hidup yang menghubungkan kita dengan Allah ",
