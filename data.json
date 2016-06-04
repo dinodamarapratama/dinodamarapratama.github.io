@@ -1,12 +1,12 @@
 var data = [
   {
     "ID": "0",
-    "Judul": "Jembatan Hidup",
+    "Judul": "Jembatan Hidup itu ... ?",
     "latitude": "-6.3898967",
     "longitude": "106.8180363",
     "Deskripsi" : "Doa adalah jembatan hidup yang menghubungkan kita dengan Allah ",
     "Lokasi": "Fly Over Jalan Arif Rahman Hakim Depok",
-    "Foto_URL":"http://www.depoklik.com/wp-content/uploads/2015/10/flyover-di-depok.jpg"
+    "Foto_URL":"https://upload.wikimedia.org/wikipedia/commons/9/94/Jalan_Arif_Rahman_Hakim_Kota_Depok.jpg"
   },
    {
     "ID": "1",
