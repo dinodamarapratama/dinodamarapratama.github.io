@@ -7,5 +7,14 @@ var data = [
     "Deskripsi" : "Doa adalah jembatan hidup yang menghubungkan kita dengan Allah ",
     "Lokasi": "Fly Over Jalan Arif Rahman Hakim Depok",
     "Foto_URL":"http://www.depoklik.com/wp-content/uploads/2015/10/flyover-di-depok.jpg"
+  },
+   {
+    "ID": "0",
+    "Judul": "JPAUD Nurul Iklas Pondok Petir Gelas Baksos",
+    "latitude": "-6.3713081",
+    "longitude": "106.7251098",
+    "Deskripsi" : " Dalam rangka haflah dan wisuda ke 9 PAUD KB Nurul Ikhlas Pondok Petir Depok mengadakan acara pembagian sembako dan uang kepada 22 yatim dan 50 dhuafa. Kegiatan tersebut berlangsung di PAUD Nurul Iklas",
+    "Lokasi": "Fly Over Jalan Arif Rahman Hakim Depok",
+    "Foto_URL":"http://i2.wp.com/www.depoknews.id/wp-content/uploads/2016/06/PAUD.jpg"
   }
 ];
