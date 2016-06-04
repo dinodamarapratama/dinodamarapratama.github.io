@@ -16,5 +16,14 @@ var data = [
     "Deskripsi" : " Dalam rangka haflah dan wisuda ke 9 PAUD KB Nurul Ikhlas Pondok Petir Depok mengadakan acara pembagian sembako dan uang kepada 22 yatim dan 50 dhuafa. Kegiatan tersebut berlangsung di PAUD Nurul Iklas",
     "Lokasi": "Jl. Pondok Petir No.34, Pd. Petir, Bojongsari, Kota Depok, Jawa Barat",
     "Foto_URL":"http://i2.wp.com/www.depoknews.id/wp-content/uploads/2016/06/PAUD.jpg"
+  },
+     {
+    "ID": "2",
+    "Judul": "KPMD Depok Gelar Semarak Ramadhan",
+    "latitude": "-6.3940919",
+    "longitude": "106.8221582",
+    "Deskripsi" : "Dalam rangka mengisi Bulan Suci Ramadhan, Kesatuan Pelajar Muslim Depok akan menyelenggarakan kegiatan SEMARAK (Seruan Menyambut Ramadhan Raih Keberkahan) 1437 H yang ditujukan kepada siswa/i SMP-SMA se-Kota Depok dan Masyarakat Kota Depok.",
+    "Lokasi": "Balai Kota Depok ",
+    "Foto_URL":"http://i0.wp.com/www.depoknews.id/wp-content/uploads/2016/06/ramadhan.jpg?fit=350%2C500"
   }
 ];
