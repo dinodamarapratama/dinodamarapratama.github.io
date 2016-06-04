@@ -25,5 +25,14 @@ var data = [
     "Deskripsi" : "Dalam rangka mengisi Bulan Suci Ramadhan, Kesatuan Pelajar Muslim Depok akan menyelenggarakan kegiatan SEMARAK (Seruan Menyambut Ramadhan Raih Keberkahan) 1437 H yang ditujukan kepada siswa/i SMP-SMA se-Kota Depok dan Masyarakat Kota Depok.",
     "Lokasi": "Balai Kota Depok ",
     "Foto_URL":"http://i0.wp.com/www.depoknews.id/wp-content/uploads/2016/06/ramadhan.jpg?fit=350%2C500"
+  },
+  {
+    "ID": "3",
+    "Judul": "Sabar ya nunggu kereta",
+    "latitude": "-6.3997082",
+    "longitude": "106.8182775",
+    "Deskripsi" : "DalBersabarlah karena kebaikan akan datang kepada mereka yang bersabar",
+    "Lokasi": "Palang pintu kereta di jalan Dewi Sartika Depok",
+    "Foto_URL":"https://i.ytimg.com/vi/Z7WfEvZDYtI/maxresdefault.jpg"
   }
 ];
