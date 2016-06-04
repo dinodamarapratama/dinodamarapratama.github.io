@@ -1,7 +1,7 @@
 var data = [
   {
     "ID": "0",
-    "Judul": "Jembatan Hidup itu ... ?",
+    "Judul": "Jembatan Hidup Itu ?",
     "latitude": "-6.3898967",
     "longitude": "106.8180363",
     "Deskripsi" : "Doa adalah jembatan hidup yang menghubungkan kita dengan Allah ",
@@ -28,10 +28,10 @@ var data = [
   },
   {
     "ID": "3",
-    "Judul": "Sabar ya nunggu kereta",
+    "Judul": "Sabar Nunggu Kereta",
     "latitude": "-6.3997082",
     "longitude": "106.8182775",
-    "Deskripsi" : "DalBersabarlah karena kebaikan akan datang kepada mereka yang bersabar",
+    "Deskripsi" : "Bersabarlah karena kebaikan akan datang kepada mereka yang bersabar",
     "Lokasi": "Palang pintu kereta di jalan Dewi Sartika Depok",
     "Foto_URL":"https://i.ytimg.com/vi/Z7WfEvZDYtI/maxresdefault.jpg"
   }
